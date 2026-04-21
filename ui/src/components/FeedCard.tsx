@@ -19,6 +19,7 @@ import {
   PlayCircle,
   MessageCircle,
   LogIn,
+  Target,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -231,6 +232,10 @@ function getIconSpec(
   if (event.entityType === "issue") {
     const status = deriveTaskStatus(action, details) ?? "backlog";
     return { kind: "status-circle", status };
+  }
+
+  if (event.entityType === "goal") {
+    return { kind: "lucide", Icon: Target, color: "text-muted-foreground" };
   }
 
   return { kind: "lucide", Icon: Settings, color: "text-muted-foreground" };

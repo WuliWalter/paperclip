@@ -776,7 +776,7 @@ export function BoardChat() {
                  and the input field. Uses the pane's background color so it
                  matches both light and dark themes. */}
             <div
-              className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-background to-transparent"
+              className="pointer-events-none absolute bottom-0 left-0 right-2 h-10 bg-gradient-to-t from-background to-transparent"
               aria-hidden
             />
           </div>
