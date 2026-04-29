@@ -1,0 +1,15 @@
+{
+  "newAgent": "New agent",
+  "editAgent": "Edit agent",
+  "pauseAgent": "Pause agent",
+  "resumeAgent": "Resume agent",
+  "agentPaused": "Agent paused",
+  "agentResumed": "Agent resumed",
+  "couldNotPauseAgent": "Could not pause agent",
+  "couldNotResumeAgent": "Could not resume agent",
+  "updating": "Updating...",
+  "budgetPaused": "Budget paused",
+  "agentPausedByBudget": "Agent paused by budget",
+  "agentPausedByBudgetLimits": "Agent was paused by budget limits",
+  "openActionsFor": "Open actions for {{name}}"
+}

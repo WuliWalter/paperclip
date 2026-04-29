@@ -1,0 +1,44 @@
+{
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "agents": "Agents",
+    "issues": "Issues",
+    "approvals": "Approvals",
+    "projects": "Projects",
+    "goals": "Goals",
+    "routines": "Routines",
+    "workspaces": "Workspaces",
+    "activity": "Activity",
+    "costs": "Costs",
+    "settings": "Settings",
+    "inbox": "Inbox",
+    "companySettings": "Company Settings",
+    "instanceSettings": "Instance Settings",
+    "profile": "Profile",
+    "work": "Work",
+    "company": "Company",
+    "org": "Org",
+    "general": "General",
+    "access": "Access",
+    "heartbeats": "Heartbeats",
+    "experimental": "Experimental",
+    "plugins": "Plugins",
+    "adapters": "Adapters",
+    "invites": "Invites"
+  },
+  "breadcrumbs": {
+    "dashboard": "Dashboard"
+  },
+  "mobileNav": {
+    "home": "Home",
+    "issues": "Issues",
+    "create": "Create",
+    "agents": "Agents",
+    "inbox": "Inbox"
+  },
+  "newIssue": "New Issue",
+  "newAgent": "New agent",
+  "newProject": "New project",
+  "liveCount_one": "{{count}} live",
+  "liveCount_other": "{{count}} live"
+}

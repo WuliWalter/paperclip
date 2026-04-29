@@ -1,0 +1,44 @@
+{
+  "sidebar": {
+    "dashboard": "仪表盘",
+    "agents": "智能体",
+    "issues": "事项",
+    "approvals": "审批",
+    "projects": "项目",
+    "goals": "目标",
+    "routines": "例行任务",
+    "workspaces": "工作区",
+    "activity": "活动",
+    "costs": "成本",
+    "settings": "设置",
+    "inbox": "收件箱",
+    "companySettings": "公司设置",
+    "instanceSettings": "实例设置",
+    "profile": "个人资料",
+    "work": "工作",
+    "company": "公司",
+    "org": "组织",
+    "general": "通用",
+    "access": "访问权限",
+    "heartbeats": "心跳",
+    "experimental": "实验性功能",
+    "plugins": "插件",
+    "adapters": "适配器",
+    "invites": "邀请"
+  },
+  "breadcrumbs": {
+    "dashboard": "仪表盘"
+  },
+  "mobileNav": {
+    "home": "首页",
+    "issues": "事项",
+    "create": "创建",
+    "agents": "智能体",
+    "inbox": "收件箱"
+  },
+  "newIssue": "新建事项",
+  "newAgent": "新建智能体",
+  "newProject": "新建项目",
+  "liveCount_one": "{{count}} 实时",
+  "liveCount_other": "{{count}} 实时"
+}

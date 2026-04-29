@@ -1,0 +1,15 @@
+{
+  "newAgent": "新建智能体",
+  "editAgent": "编辑智能体",
+  "pauseAgent": "暂停智能体",
+  "resumeAgent": "恢复智能体",
+  "agentPaused": "智能体已暂停",
+  "agentResumed": "智能体已恢复",
+  "couldNotPauseAgent": "无法暂停智能体",
+  "couldNotResumeAgent": "无法恢复智能体",
+  "updating": "更新中...",
+  "budgetPaused": "预算暂停",
+  "agentPausedByBudget": "智能体因预算暂停",
+  "agentPausedByBudgetLimits": "智能体因预算限制已暂停",
+  "openActionsFor": "打开 {{name}} 的操作"
+}
