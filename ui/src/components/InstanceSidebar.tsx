@@ -19,19 +19,19 @@ export function InstanceSidebar() {
       <div className="flex items-center gap-2 px-3 h-12 shrink-0">
         <Settings className="h-4 w-4 text-muted-foreground shrink-0 ml-1" />
         <span className="flex-1 text-sm font-bold text-foreground truncate">
-          {t("instanceSettings")}
+          {t("sidebar.instanceSettings")}
         </span>
       </div>
 
       <nav className="flex-1 min-h-0 overflow-y-auto scrollbar-auto-hide flex flex-col gap-4 px-3 py-2">
         <div className="flex flex-col gap-0.5">
-          <SidebarNavItem to="/instance/settings/profile" label={t("profile")} icon={UserRoundPen} end />
-          <SidebarNavItem to="/instance/settings/general" label={t("general")} icon={SlidersHorizontal} end />
-          <SidebarNavItem to="/instance/settings/access" label={t("access")} icon={Shield} end />
-          <SidebarNavItem to="/instance/settings/heartbeats" label={t("heartbeats")} icon={Clock3} end />
-          <SidebarNavItem to="/instance/settings/experimental" label={t("experimental")} icon={FlaskConical} />
-          <SidebarNavItem to="/instance/settings/plugins" label={t("plugins")} icon={Puzzle} />
-          <SidebarNavItem to="/instance/settings/adapters" label={t("adapters")} icon={Cpu} />
+          <SidebarNavItem to="/instance/settings/profile" label={t("sidebar.profile")} icon={UserRoundPen} end />
+          <SidebarNavItem to="/instance/settings/general" label={t("sidebar.general")} icon={SlidersHorizontal} end />
+          <SidebarNavItem to="/instance/settings/access" label={t("sidebar.access")} icon={Shield} end />
+          <SidebarNavItem to="/instance/settings/heartbeats" label={t("sidebar.heartbeats")} icon={Clock3} end />
+          <SidebarNavItem to="/instance/settings/experimental" label={t("sidebar.experimental")} icon={FlaskConical} />
+          <SidebarNavItem to="/instance/settings/plugins" label={t("sidebar.plugins")} icon={Puzzle} />
+          <SidebarNavItem to="/instance/settings/adapters" label={t("sidebar.adapters")} icon={Cpu} />
           {(plugins ?? []).length > 0 ? (
             <div className="ml-4 mt-1 flex flex-col gap-0.5 border-l border-border/70 pl-3">
               {(plugins ?? []).map((plugin) => (

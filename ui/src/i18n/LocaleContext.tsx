@@ -29,6 +29,13 @@ function resolveInitialLocale(): SupportedLocale {
   if (stored && SUPPORTED_LOCALES.includes(stored as SupportedLocale)) {
     return stored as SupportedLocale;
   }
+  const browserLang = typeof navigator !== "undefined" ? navigator.language : undefined;
+  if (browserLang) {
+    const matched = SUPPORTED_LOCALES.find((locale) =>
+      browserLang === locale || browserLang.startsWith(`${locale}-`),
+    );
+    if (matched) return matched;
+  }
   return DEFAULT_LOCALE;
 }
 

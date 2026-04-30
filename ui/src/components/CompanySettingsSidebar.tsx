@@ -43,27 +43,27 @@ export function CompanySettingsSidebar() {
           className="flex items-center gap-1.5 rounded-md px-2 py-1 text-xs text-muted-foreground transition-colors hover:bg-accent/50 hover:text-foreground"
         >
           <ChevronLeft className="h-3.5 w-3.5 shrink-0" />
-          <span className="truncate">{selectedCompany?.name ?? t("company")}</span>
+          <span className="truncate">{selectedCompany?.name ?? t("sidebar.company")}</span>
         </Link>
         <div className="flex items-center gap-2 px-2 py-1">
           <Settings className="h-4 w-4 text-muted-foreground shrink-0" />
           <span className="flex-1 truncate text-sm font-bold text-foreground">
-            {t("companySettings")}
+            {t("sidebar.companySettings")}
           </span>
         </div>
       </div>
 
       <nav className="flex-1 min-h-0 overflow-y-auto scrollbar-auto-hide px-3 py-2">
         <div className="flex flex-col gap-0.5">
-          <SidebarNavItem to="/company/settings" label={t("general")} icon={SlidersHorizontal} end />
+          <SidebarNavItem to="/company/settings" label={t("sidebar.general")} icon={SlidersHorizontal} end />
           <SidebarNavItem
             to="/company/settings/access"
-            label={t("access")}
+            label={t("sidebar.access")}
             icon={Shield}
             badge={badges?.joinRequests ?? 0}
             end
           />
-          <SidebarNavItem to="/company/settings/invites" label={t("invites")} icon={MailPlus} end />
+          <SidebarNavItem to="/company/settings/invites" label={t("sidebar.invites")} icon={MailPlus} end />
         </div>
       </nav>
     </aside>
