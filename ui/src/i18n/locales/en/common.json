@@ -40,6 +40,21 @@
     "live": "Live",
     "comingSoon": "Coming soon"
   },
+  "issueStatus": {
+    "todo": "To Do",
+    "in_progress": "In Progress",
+    "in_review": "In Review",
+    "done": "Done",
+    "blocked": "Blocked",
+    "cancelled": "Cancelled",
+    "backlog": "Backlog"
+  },
+  "priority": {
+    "critical": "Critical",
+    "high": "High",
+    "medium": "Medium",
+    "low": "Low"
+  },
   "emptyStates": {
     "noData": "No data",
     "noResults": "No results found",

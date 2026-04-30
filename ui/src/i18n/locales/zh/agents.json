@@ -11,5 +11,20 @@
   "budgetPaused": "预算暂停",
   "agentPausedByBudget": "智能体因预算暂停",
   "agentPausedByBudgetLimits": "智能体因预算限制已暂停",
-  "openActionsFor": "打开 {{name}} 的操作"
+  "openActionsFor": "打开 {{name}} 的操作",
+  "tabs": {
+    "all": "全部",
+    "active": "活跃",
+    "paused": "已暂停",
+    "error": "错误"
+  },
+  "filters": "筛选",
+  "showTerminated": "显示已终止",
+  "noAgentsFilter": "没有智能体匹配所选筛选条件。",
+  "noOrgHierarchy": "未定义组织架构。",
+  "agentCount_one": "{{count}} 个智能体",
+  "agentCount_other": "{{count}} 个智能体",
+  "createFirstAgent": "创建你的第一个智能体以开始使用。",
+  "selectCompany": "选择公司以查看智能体。",
+  "live": "实时"
 }

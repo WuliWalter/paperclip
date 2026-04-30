@@ -6,6 +6,7 @@ import type enIssues from "./locales/en/issues.json";
 import type enApprovals from "./locales/en/approvals.json";
 import type enSettings from "./locales/en/settings.json";
 import type enAdapters from "./locales/en/adapters.json";
+import type enDashboard from "./locales/en/dashboard.json";
 
 declare module "react-i18next" {
   interface CustomTypeOptions {
@@ -18,6 +19,7 @@ declare module "react-i18next" {
       approvals: typeof enApprovals;
       settings: typeof enSettings;
       adapters: typeof enAdapters;
+      dashboard: typeof enDashboard;
     };
   }
 }

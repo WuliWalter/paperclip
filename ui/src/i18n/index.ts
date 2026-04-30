@@ -9,6 +9,7 @@ import enIssues from "./locales/en/issues.json";
 import enApprovals from "./locales/en/approvals.json";
 import enSettings from "./locales/en/settings.json";
 import enAdapters from "./locales/en/adapters.json";
+import enDashboard from "./locales/en/dashboard.json";
 
 import zhCommon from "./locales/zh/common.json";
 import zhNavigation from "./locales/zh/navigation.json";
@@ -17,6 +18,7 @@ import zhIssues from "./locales/zh/issues.json";
 import zhApprovals from "./locales/zh/approvals.json";
 import zhSettings from "./locales/zh/settings.json";
 import zhAdapters from "./locales/zh/adapters.json";
+import zhDashboard from "./locales/zh/dashboard.json";
 
 const resources = {
   en: {
@@ -27,6 +29,7 @@ const resources = {
     approvals: enApprovals,
     settings: enSettings,
     adapters: enAdapters,
+    dashboard: enDashboard,
   },
   zh: {
     common: zhCommon,
@@ -36,6 +39,7 @@ const resources = {
     approvals: zhApprovals,
     settings: zhSettings,
     adapters: zhAdapters,
+    dashboard: zhDashboard,
   },
 };
 

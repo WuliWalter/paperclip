@@ -27,7 +27,9 @@
     "invites": "Invites"
   },
   "breadcrumbs": {
-    "dashboard": "Dashboard"
+    "dashboard": "Dashboard",
+    "agents": "Agents",
+    "issues": "Issues"
   },
   "mobileNav": {
     "home": "Home",

@@ -40,6 +40,21 @@
     "live": "实时",
     "comingSoon": "即将推出"
   },
+  "issueStatus": {
+    "todo": "待办",
+    "in_progress": "进行中",
+    "in_review": "审核中",
+    "done": "已完成",
+    "blocked": "已阻塞",
+    "cancelled": "已取消",
+    "backlog": "待排期"
+  },
+  "priority": {
+    "critical": "紧急",
+    "high": "高",
+    "medium": "中",
+    "low": "低"
+  },
   "emptyStates": {
     "noData": "暂无数据",
     "noResults": "未找到结果",

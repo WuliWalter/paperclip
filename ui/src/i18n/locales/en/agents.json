@@ -11,5 +11,20 @@
   "budgetPaused": "Budget paused",
   "agentPausedByBudget": "Agent paused by budget",
   "agentPausedByBudgetLimits": "Agent was paused by budget limits",
-  "openActionsFor": "Open actions for {{name}}"
+  "openActionsFor": "Open actions for {{name}}",
+  "tabs": {
+    "all": "All",
+    "active": "Active",
+    "paused": "Paused",
+    "error": "Error"
+  },
+  "filters": "Filters",
+  "showTerminated": "Show terminated",
+  "noAgentsFilter": "No agents match the selected filter.",
+  "noOrgHierarchy": "No organizational hierarchy defined.",
+  "agentCount_one": "{{count}} agent",
+  "agentCount_other": "{{count}} agents",
+  "createFirstAgent": "Create your first agent to get started.",
+  "selectCompany": "Select a company to view agents.",
+  "live": "Live"
 }

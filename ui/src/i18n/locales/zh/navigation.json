@@ -27,7 +27,9 @@
     "invites": "邀请"
   },
   "breadcrumbs": {
-    "dashboard": "仪表盘"
+    "dashboard": "仪表盘",
+    "agents": "智能体",
+    "issues": "事项"
   },
   "mobileNav": {
     "home": "首页",
