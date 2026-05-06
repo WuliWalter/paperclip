@@ -12,6 +12,10 @@ import enAdapters from "./locales/en/adapters.json";
 import enDashboard from "./locales/en/dashboard.json";
 import enInbox from "./locales/en/inbox.json";
 import enActivity from "./locales/en/activity.json";
+import enInvites from "./locales/en/invites.json";
+import enRoutines from "./locales/en/routines.json";
+import enGoals from "./locales/en/goals.json";
+import enWorkspaces from "./locales/en/workspaces.json";
 
 import zhCommon from "./locales/zh/common.json";
 import zhNavigation from "./locales/zh/navigation.json";
@@ -23,6 +27,10 @@ import zhAdapters from "./locales/zh/adapters.json";
 import zhDashboard from "./locales/zh/dashboard.json";
 import zhInbox from "./locales/zh/inbox.json";
 import zhActivity from "./locales/zh/activity.json";
+import zhInvites from "./locales/zh/invites.json";
+import zhRoutines from "./locales/zh/routines.json";
+import zhGoals from "./locales/zh/goals.json";
+import zhWorkspaces from "./locales/zh/workspaces.json";
 
 const resources = {
   en: {
@@ -36,6 +44,10 @@ const resources = {
     dashboard: enDashboard,
     inbox: enInbox,
     activity: enActivity,
+    invites: enInvites,
+    routines: enRoutines,
+    goals: enGoals,
+    workspaces: enWorkspaces,
   },
   zh: {
     common: zhCommon,
@@ -48,6 +60,10 @@ const resources = {
     dashboard: zhDashboard,
     inbox: zhInbox,
     activity: zhActivity,
+    invites: zhInvites,
+    routines: zhRoutines,
+    goals: zhGoals,
+    workspaces: zhWorkspaces,
   },
 };
 

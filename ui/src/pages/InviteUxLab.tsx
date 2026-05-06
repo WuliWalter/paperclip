@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { useTranslation } from "react-i18next";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -18,76 +19,6 @@ import {
   UserPlus,
   Users,
 } from "lucide-react";
-
-const inviteRoleOptions = [
-  {
-    value: "viewer",
-    label: "Viewer",
-    description: "Can view company work and follow along without operational permissions.",
-    gets: "No built-in grants.",
-  },
-  {
-    value: "operator",
-    label: "Operator",
-    description: "Recommended for people who need to help run work without managing access.",
-    gets: "Can assign tasks.",
-  },
-  {
-    value: "admin",
-    label: "Admin",
-    description: "Recommended for operators who need to invite people, create agents, and approve joins.",
-    gets: "Can create agents, invite users, assign tasks, and approve join requests.",
-  },
-  {
-    value: "owner",
-    label: "Owner",
-    description: "Full company access, including membership and permission management.",
-    gets: "Everything in Admin, plus managing members and permission grants.",
-  },
-] as const;
-
-const inviteHistory = [
-  {
-    id: "invite-active",
-    state: "Active",
-    humanRole: "operator",
-    invitedBy: "Board User 25",
-    email: "board25@paperclip.local",
-    createdAt: "Apr 25, 2026, 9:00 AM",
-    action: "Revoke",
-    relatedLabel: "Review request",
-  },
-  {
-    id: "invite-accepted",
-    state: "Accepted",
-    humanRole: "viewer",
-    invitedBy: "Board User 24",
-    email: "board24@paperclip.local",
-    createdAt: "Apr 24, 2026, 8:15 AM",
-    action: "Inactive",
-    relatedLabel: "—",
-  },
-  {
-    id: "invite-revoked",
-    state: "Revoked",
-    humanRole: "admin",
-    invitedBy: "Board User 20",
-    email: "board20@paperclip.local",
-    createdAt: "Apr 20, 2026, 2:45 PM",
-    action: "Inactive",
-    relatedLabel: "—",
-  },
-  {
-    id: "invite-expired",
-    state: "Expired",
-    humanRole: "owner",
-    invitedBy: "Board User 19",
-    email: "board19@paperclip.local",
-    createdAt: "Apr 19, 2026, 7:10 PM",
-    action: "Inactive",
-    relatedLabel: "—",
-  },
-] as const;
 
 const fieldClassName =
   "w-full border border-zinc-800 bg-zinc-950 px-3 py-2 text-sm text-zinc-100 outline-none focus:border-zinc-500";
@@ -190,6 +121,7 @@ function InviteSummaryPanel({
   requestedAccess: string;
   signedInLabel?: string;
 }) {
+  const { t } = useTranslation("invites");
   return (
     <>
       <div className="flex items-start gap-4">
@@ -200,29 +132,29 @@ function InviteSummaryPanel({
           className="h-16 w-16 rounded-none border border-zinc-800"
         />
         <div className="min-w-0">
-          <p className="text-xs uppercase tracking-[0.24em] text-zinc-500">You&apos;ve been invited to join Paperclip</p>
+          <p className="text-xs uppercase tracking-[0.24em] text-zinc-500">{t("uxLab.inviteSummary.invitedToJoin")}</p>
           <h3 className="mt-2 text-2xl font-semibold text-zinc-100">{title}</h3>
           <p className="mt-2 max-w-2xl text-sm leading-6 text-zinc-300">{description}</p>
         </div>
       </div>
 
       <div className="grid gap-3 sm:grid-cols-2">
-        <MetaCard label="Company" value="Acme Robotics" />
-        <MetaCard label="Invited by" value="Board User" />
-        <MetaCard label="Requested access" value={requestedAccess} />
-        <MetaCard label="Invite expires" value="Mar 7, 2027" />
+        <MetaCard label={t("uxLab.inviteSummary.company")} value="Acme Robotics" />
+        <MetaCard label={t("uxLab.inviteSummary.invitedBy")} value="Board User" />
+        <MetaCard label={t("uxLab.inviteSummary.requestedAccess")} value={requestedAccess} />
+        <MetaCard label={t("uxLab.inviteSummary.inviteExpires")} value="Mar 7, 2027" />
       </div>
 
       {inviteMessage ? (
         <div className="border border-amber-500/40 bg-amber-500/10 p-4">
-          <div className="text-xs uppercase tracking-[0.2em] text-amber-200/80">Message from inviter</div>
+          <div className="text-xs uppercase tracking-[0.2em] text-amber-200/80">{t("uxLab.inviteSummary.messageFromInviter")}</div>
           <p className="mt-2 text-sm leading-6 text-amber-50">{inviteMessage}</p>
         </div>
       ) : null}
 
       {signedInLabel ? (
         <div className="border border-emerald-500/40 bg-emerald-500/10 p-4 text-sm text-emerald-50">
-          Signed in as <span className="font-medium">{signedInLabel}</span>.
+          {t("uxLab.inviteSummary.signedInAs", { label: signedInLabel })}
         </div>
       ) : null}
     </>
@@ -247,16 +179,17 @@ function InlineAuthPreview({
   feedback?: { tone: "info" | "error"; text: string };
   working?: boolean;
 }) {
+  const { t } = useTranslation("invites");
   return (
     <div className="space-y-5">
       <div>
         <h3 className="text-lg font-semibold text-zinc-100">
-          {mode === "sign_up" ? "Create your account" : "Sign in to continue"}
+          {mode === "sign_up" ? t("uxLab.inlineAuth.createAccount") : t("uxLab.inlineAuth.signInToContinue")}
         </h3>
         <p className="mt-1 text-sm text-zinc-400">
           {mode === "sign_up"
-            ? "Start with a Paperclip account. After that, you'll come right back here to accept the invite for Acme Robotics."
-            : "Use the Paperclip account that already matches this invite. If you do not have one yet, switch back to create account."}
+            ? t("uxLab.inlineAuth.createAccountDescription", { companyName: "Acme Robotics" })
+            : t("uxLab.inlineAuth.signInDescription")}
         </p>
       </div>
 
@@ -270,7 +203,7 @@ function InlineAuthPreview({
               : "border-zinc-800 text-zinc-300 hover:border-zinc-600",
           )}
         >
-          Create account
+          {t("uxLab.inlineAuth.createAccountButton")}
         </button>
         <button
           type="button"
@@ -281,23 +214,23 @@ function InlineAuthPreview({
               : "border-zinc-800 text-zinc-300 hover:border-zinc-600",
           )}
         >
-          I already have an account
+          {t("uxLab.inlineAuth.alreadyHaveAccount")}
         </button>
       </div>
 
       <form className="space-y-4">
         {mode === "sign_up" ? (
           <label className="block text-sm">
-            <span className="mb-1 block text-zinc-400">Name</span>
+            <span className="mb-1 block text-zinc-400">{t("uxLab.inlineAuth.name")}</span>
             <input name="name" className={fieldClassName} defaultValue="Jane Example" readOnly />
           </label>
         ) : null}
         <label className="block text-sm">
-          <span className="mb-1 block text-zinc-400">Email</span>
+          <span className="mb-1 block text-zinc-400">{t("uxLab.inlineAuth.email")}</span>
           <input name="email" type="email" className={fieldClassName} defaultValue="jane@example.com" readOnly />
         </label>
         <label className="block text-sm">
-          <span className="mb-1 block text-zinc-400">Password</span>
+          <span className="mb-1 block text-zinc-400">{t("uxLab.inlineAuth.password")}</span>
           <input name="password" type="password" className={fieldClassName} defaultValue="supersecret" readOnly />
         </label>
         {feedback ? (
@@ -306,34 +239,35 @@ function InlineAuthPreview({
           </p>
         ) : null}
         <Button type="button" className="w-full rounded-none" disabled={working}>
-          {working ? "Working..." : mode === "sign_in" ? "Sign in and continue" : "Create account and continue"}
+          {working ? t("uxLab.agentRequest.submitRequest") : mode === "sign_in" ? t("uxLab.inlineAuth.signInAndContinue") : t("uxLab.inlineAuth.createAccountAndContinue")}
         </Button>
       </form>
 
       <p className="text-xs leading-5 text-zinc-500">
         {mode === "sign_up"
-          ? "Already signed up before? Use the existing-account option instead so the invite lands on the right Paperclip user."
-          : "No account yet? Switch back to create account so you can accept the invite with a new login."}
+          ? t("uxLab.inlineAuth.alreadySignedUpHint")
+          : t("uxLab.inlineAuth.noAccountHint")}
       </p>
     </div>
   );
 }
 
 function AgentRequestPreview() {
+  const { t } = useTranslation("invites");
   return (
     <div className="space-y-4">
       <div>
-        <h3 className="text-lg font-semibold text-zinc-100">Submit agent details</h3>
+        <h3 className="text-lg font-semibold text-zinc-100">{t("uxLab.agentRequest.title")}</h3>
         <p className="mt-1 text-sm text-zinc-400">
-          This invite will create an approval request for a new agent in Acme Robotics.
+          {t("uxLab.agentRequest.description", { companyName: "Acme Robotics" })}
         </p>
       </div>
       <label className="block text-sm">
-        <span className="mb-1 block text-zinc-400">Agent name</span>
+        <span className="mb-1 block text-zinc-400">{t("uxLab.agentRequest.agentName")}</span>
         <input className={fieldClassName} defaultValue="Acme Ops Agent" readOnly />
       </label>
       <label className="block text-sm">
-        <span className="mb-1 block text-zinc-400">Adapter type</span>
+        <span className="mb-1 block text-zinc-400">{t("uxLab.agentRequest.adapterType")}</span>
         <select className={fieldClassName} defaultValue="codex_local" disabled>
           <option value="codex_local">Codex</option>
           <option value="claude_local">Claude Code</option>
@@ -341,7 +275,7 @@ function AgentRequestPreview() {
         </select>
       </label>
       <label className="block text-sm">
-        <span className="mb-1 block text-zinc-400">Capabilities</span>
+        <span className="mb-1 block text-zinc-400">{t("uxLab.agentRequest.capabilities")}</span>
         <textarea
           className={fieldClassName}
           rows={4}
@@ -350,7 +284,7 @@ function AgentRequestPreview() {
         />
       </label>
       <Button type="button" className="w-full rounded-none">
-        Submit request
+        {t("uxLab.agentRequest.submitRequest")}
       </Button>
     </div>
   );
@@ -365,24 +299,25 @@ function AcceptInvitePreview({
   isCurrentMember?: boolean;
   error?: string;
 }) {
+  const { t } = useTranslation("invites");
   return (
     <div className="space-y-4">
       <div>
-        <h3 className="text-lg font-semibold text-zinc-100">Accept company invite</h3>
+        <h3 className="text-lg font-semibold text-zinc-100">{t("uxLab.acceptInvite.title")}</h3>
         <p className="mt-1 text-sm text-zinc-400">
           {autoAccept
-            ? "Submitting your join request for Acme Robotics."
+            ? t("uxLab.acceptInvite.submittingDescription", { companyName: "Acme Robotics" })
             : isCurrentMember
-              ? "This account already belongs to Acme Robotics."
-              : "This will submit or complete your join request for Acme Robotics."}
+              ? t("uxLab.acceptInvite.alreadyMemberDescription", { companyName: "Acme Robotics" })
+              : t("uxLab.acceptInvite.submitOrCompleteDescription", { companyName: "Acme Robotics" })}
         </p>
       </div>
       {error ? <p className="text-xs text-red-400">{error}</p> : null}
       {autoAccept ? (
-        <div className="text-sm text-zinc-400">Submitting request...</div>
+        <div className="text-sm text-zinc-400">{t("uxLab.acceptInvite.submittingRequest")}</div>
       ) : (
         <Button type="button" className="w-full rounded-none" disabled={isCurrentMember}>
-          Accept invite
+          {t("uxLab.acceptInvite.acceptInvite")}
         </Button>
       )}
     </div>
@@ -402,6 +337,7 @@ function InviteResultPreview({
   onboardingTextUrl?: string;
   joinedNow?: boolean;
 }) {
+  const { t } = useTranslation("invites");
   return (
     <div className="mx-auto max-w-md border border-zinc-800 bg-zinc-950 p-6 text-zinc-100">
       <div className="flex items-center gap-3">
@@ -417,31 +353,31 @@ function InviteResultPreview({
         <p className="text-sm text-zinc-400">{description}</p>
         {joinedNow ? (
           <Button type="button" className="w-full rounded-none">
-            Open board
+            {t("uxLab.inviteResult.openBoard")}
           </Button>
         ) : (
           <>
             <div className="border border-zinc-800 p-3">
-              <p className="mb-1 text-xs text-zinc-500">Approval page</p>
+              <p className="mb-1 text-xs text-zinc-500">{t("uxLab.inviteResult.approvalPage")}</p>
               <a className="text-sm text-zinc-200 underline underline-offset-2" href="/company/settings/access">
-                Company Settings → Access
+                {t("uxLab.inviteResult.companySettingsAccess")}
               </a>
             </div>
             <p className="text-xs text-zinc-500">
-              Refresh this page after you&apos;ve been approved — you&apos;ll be redirected automatically.
+              {t("uxLab.inviteResult.refreshHint")}
             </p>
           </>
         )}
         {claimSecret ? (
           <div className="space-y-1 border border-zinc-800 p-3 text-xs text-zinc-400">
-            <div className="text-zinc-200">Claim secret</div>
+            <div className="text-zinc-200">{t("uxLab.inviteResult.claimSecret")}</div>
             <div className="font-mono break-all">{claimSecret}</div>
             <div className="font-mono break-all">POST /api/agents/claim-api-key</div>
           </div>
         ) : null}
         {onboardingTextUrl ? (
           <div className="text-xs text-zinc-400">
-            Onboarding: <span className="font-mono break-all">{onboardingTextUrl}</span>
+            {t("uxLab.inviteResult.onboarding")} <span className="font-mono break-all">{onboardingTextUrl}</span>
           </div>
         ) : null}
       </div>
@@ -450,6 +386,7 @@ function InviteResultPreview({
 }
 
 function AuthScreenPreview({ mode, error }: { mode: "sign_in" | "sign_up"; error?: string }) {
+  const { t } = useTranslation("invites");
   return (
     <div className="overflow-hidden rounded-[28px] border border-border/70 bg-background shadow-[0_24px_60px_rgba(15,23,42,0.08)]">
       <div className="grid gap-px bg-border/60 md:grid-cols-2">
@@ -457,20 +394,20 @@ function AuthScreenPreview({ mode, error }: { mode: "sign_in" | "sign_up"; error
           <div className="mx-auto w-full max-w-md">
             <div className="mb-8 flex items-center gap-2">
               <FlaskConical className="h-4 w-4 text-muted-foreground" />
-              <span className="text-sm font-medium">Paperclip</span>
+              <span className="text-sm font-medium">{t("uxLab.authScreen.paperclip")}</span>
             </div>
             <h3 className="text-xl font-semibold">
-              {mode === "sign_in" ? "Sign in to Paperclip" : "Create your Paperclip account"}
+              {mode === "sign_in" ? t("uxLab.authScreen.signInTitle") : t("uxLab.authScreen.signUpTitle")}
             </h3>
             <p className="mt-1 text-sm text-muted-foreground">
               {mode === "sign_in"
-                ? "Use your email and password to access this instance."
-                : "Create an account for this instance. Email confirmation is not required in v1."}
+                ? t("uxLab.authScreen.signInDescription")
+                : t("uxLab.authScreen.signUpDescription")}
             </p>
             <div className="mt-6 space-y-4">
               {mode === "sign_up" ? (
                 <label className="block">
-                  <span className="mb-1 block text-xs text-muted-foreground">Name</span>
+                  <span className="mb-1 block text-xs text-muted-foreground">{t("uxLab.authScreen.name")}</span>
                   <input
                     className="w-full rounded-md border border-border bg-transparent px-3 py-2 text-sm"
                     defaultValue="Jane Example"
@@ -479,7 +416,7 @@ function AuthScreenPreview({ mode, error }: { mode: "sign_in" | "sign_up"; error
                 </label>
               ) : null}
               <label className="block">
-                <span className="mb-1 block text-xs text-muted-foreground">Email</span>
+                <span className="mb-1 block text-xs text-muted-foreground">{t("uxLab.authScreen.email")}</span>
                 <input
                   className="w-full rounded-md border border-border bg-transparent px-3 py-2 text-sm"
                   defaultValue="jane@example.com"
@@ -487,7 +424,7 @@ function AuthScreenPreview({ mode, error }: { mode: "sign_in" | "sign_up"; error
                 />
               </label>
               <label className="block">
-                <span className="mb-1 block text-xs text-muted-foreground">Password</span>
+                <span className="mb-1 block text-xs text-muted-foreground">{t("uxLab.authScreen.password")}</span>
                 <input
                   className="w-full rounded-md border border-border bg-transparent px-3 py-2 text-sm"
                   defaultValue="supersecret"
@@ -496,13 +433,13 @@ function AuthScreenPreview({ mode, error }: { mode: "sign_in" | "sign_up"; error
               </label>
               {error ? <p className="text-xs text-destructive">{error}</p> : null}
               <Button type="button" className="w-full">
-                {mode === "sign_in" ? "Sign In" : "Create Account"}
+                {mode === "sign_in" ? t("uxLab.authScreen.signInButton") : t("uxLab.authScreen.createAccountButton")}
               </Button>
             </div>
             <div className="mt-5 text-sm text-muted-foreground">
-              {mode === "sign_in" ? "Need an account?" : "Already have an account?"}{" "}
+              {mode === "sign_in" ? t("uxLab.authScreen.needAccount") : t("uxLab.authScreen.alreadyHaveAccount")}{" "}
               <span className="font-medium text-foreground underline underline-offset-2">
-                {mode === "sign_in" ? "Create one" : "Sign in"}
+                {mode === "sign_in" ? t("uxLab.authScreen.createOne") : t("uxLab.authScreen.signInLink")}
               </span>
             </div>
           </div>
@@ -510,11 +447,11 @@ function AuthScreenPreview({ mode, error }: { mode: "sign_in" | "sign_up"; error
         <div className="hidden min-h-[420px] items-center justify-center bg-[radial-gradient(circle_at_top,rgba(8,145,178,0.18),transparent_48%),linear-gradient(180deg,rgba(15,23,42,0.96),rgba(2,6,23,1))] px-8 py-10 md:flex">
           <div className="max-w-sm space-y-4 text-zinc-200">
             <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-500/[0.08] px-3 py-1 text-[10px] uppercase tracking-[0.22em] text-cyan-200">
-              Auth preview
+              {t("uxLab.authPreview.badge")}
             </div>
-            <div className="text-2xl font-semibold">Side-by-side signup styling review</div>
+            <div className="text-2xl font-semibold">{t("uxLab.authPreview.title")}</div>
             <p className="text-sm leading-6 text-zinc-400">
-              This frame mirrors the production auth surface so spacing, label density, button treatments, and desktop composition are easy to compare.
+              {t("uxLab.authPreview.description")}
             </p>
           </div>
         </div>
@@ -524,24 +461,96 @@ function AuthScreenPreview({ mode, error }: { mode: "sign_in" | "sign_up"; error
 }
 
 function CompanyInvitesPreview() {
+  const { t } = useTranslation("invites");
+
+  const inviteRoleOptions = [
+    {
+      value: "viewer",
+      label: t("companyInvites.role.viewer.label"),
+      description: t("companyInvites.role.viewer.description"),
+      gets: t("companyInvites.role.viewer.gets"),
+    },
+    {
+      value: "operator",
+      label: t("companyInvites.role.operator.label"),
+      description: t("companyInvites.role.operator.description"),
+      gets: t("companyInvites.role.operator.gets"),
+    },
+    {
+      value: "admin",
+      label: t("companyInvites.role.admin.label"),
+      description: t("companyInvites.role.admin.description"),
+      gets: t("companyInvites.role.admin.gets"),
+    },
+    {
+      value: "owner",
+      label: t("companyInvites.role.owner.label"),
+      description: t("companyInvites.role.owner.description"),
+      gets: t("companyInvites.role.owner.gets"),
+    },
+  ] as const;
+
+  const inviteHistory = [
+    {
+      id: "invite-active",
+      state: "Active",
+      humanRole: "operator",
+      invitedBy: "Board User 25",
+      email: "board25@paperclip.local",
+      createdAt: "Apr 25, 2026, 9:00 AM",
+      action: "Revoke",
+      relatedLabel: "Review request",
+    },
+    {
+      id: "invite-accepted",
+      state: "Accepted",
+      humanRole: "viewer",
+      invitedBy: "Board User 24",
+      email: "board24@paperclip.local",
+      createdAt: "Apr 24, 2026, 8:15 AM",
+      action: "Inactive",
+      relatedLabel: "—",
+    },
+    {
+      id: "invite-revoked",
+      state: "Revoked",
+      humanRole: "admin",
+      invitedBy: "Board User 20",
+      email: "board20@paperclip.local",
+      createdAt: "Apr 20, 2026, 2:45 PM",
+      action: "Inactive",
+      relatedLabel: "—",
+    },
+    {
+      id: "invite-expired",
+      state: "Expired",
+      humanRole: "owner",
+      invitedBy: "Board User 19",
+      email: "board19@paperclip.local",
+      createdAt: "Apr 19, 2026, 7:10 PM",
+      action: "Inactive",
+      relatedLabel: "—",
+    },
+  ] as const;
+
   return (
     <div className="grid gap-5 xl:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)]">
       <Card className="rounded-[28px] shadow-none">
         <CardHeader className="space-y-3">
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <MailPlus className="h-4 w-4" />
-            Company Invites
+            {t("uxLab.companyInvitesPreview.title")}
           </div>
           <div>
-            <CardTitle>Create invite</CardTitle>
+            <CardTitle>{t("uxLab.companyInvitesPreview.createInvite")}</CardTitle>
             <CardDescription className="mt-2">
-              Generate a human invite link and choose the default access it should request.
+              {t("uxLab.companyInvitesPreview.createInviteDescription")}
             </CardDescription>
           </div>
         </CardHeader>
         <CardContent className="space-y-4">
           <fieldset className="space-y-3">
-            <legend className="text-sm font-medium">Choose a role</legend>
+            <legend className="text-sm font-medium">{t("uxLab.companyInvitesPreview.chooseRole")}</legend>
             <div className="rounded-2xl border border-border">
               {inviteRoleOptions.map((option, index) => (
                 <label
@@ -559,7 +568,7 @@ function CompanyInvitesPreview() {
                       <span className="text-sm font-medium">{option.label}</span>
                       {option.value === "operator" ? (
                         <span className="rounded-full border border-border px-2 py-0.5 text-xs text-muted-foreground">
-                          Default
+                          {t("companyInvites.role.operator.defaultBadge")}
                         </span>
                       ) : null}
                     </span>
@@ -572,25 +581,25 @@ function CompanyInvitesPreview() {
           </fieldset>
 
           <div className="rounded-xl border border-border px-4 py-3 text-sm text-muted-foreground">
-            Each invite link is single-use. The first successful use consumes the link and creates or reuses the matching join request before approval.
+            {t("uxLab.companyInvitesPreview.singleUseNote")}
           </div>
 
           <div className="flex flex-wrap items-center gap-3">
-            <Button type="button">Create invite</Button>
-            <span className="text-sm text-muted-foreground">Invite history below keeps the audit trail.</span>
+            <Button type="button">{t("uxLab.companyInvitesPreview.createButton")}</Button>
+            <span className="text-sm text-muted-foreground">{t("uxLab.companyInvitesPreview.historyNote")}</span>
           </div>
 
           <div className="space-y-3 rounded-2xl border border-border px-4 py-4">
             <div className="flex items-center justify-between gap-3">
               <div>
-                <div className="text-sm font-medium">Latest invite link</div>
+                <div className="text-sm font-medium">{t("uxLab.companyInvitesPreview.latestInvite")}</div>
                 <div className="text-sm text-muted-foreground">
-                  This URL includes the current Paperclip domain returned by the server.
+                  {t("uxLab.companyInvitesPreview.domainNote")}
                 </div>
               </div>
               <div className="inline-flex items-center gap-1 text-xs font-medium text-foreground">
                 <Check className="h-3.5 w-3.5" />
-                Copied
+                {t("uxLab.companyInvitesPreview.copied")}
               </div>
             </div>
             <button
@@ -602,7 +611,7 @@ function CompanyInvitesPreview() {
             <div className="flex flex-wrap gap-2">
               <Button type="button" size="sm" variant="outline">
                 <ExternalLink className="h-4 w-4" />
-                Open invite
+                {t("uxLab.companyInvitesPreview.openInvite")}
               </Button>
             </div>
           </div>
@@ -613,13 +622,13 @@ function CompanyInvitesPreview() {
         <CardHeader className="space-y-3">
           <div className="flex items-center justify-between gap-3">
             <div>
-              <CardTitle>Invite history</CardTitle>
+              <CardTitle>{t("uxLab.companyInvitesPreview.inviteHistory")}</CardTitle>
               <CardDescription className="mt-2">
-                Review invite status, role, inviter, and any linked join request.
+                {t("uxLab.companyInvitesPreview.historyDescription")}
               </CardDescription>
             </div>
             <a href="/inbox/requests" className="text-sm underline underline-offset-4">
-              Open join request queue
+              {t("uxLab.companyInvitesPreview.openQueue")}
             </a>
           </div>
         </CardHeader>
@@ -628,12 +637,12 @@ function CompanyInvitesPreview() {
             <table className="min-w-full text-left text-sm">
               <thead>
                 <tr className="border-b border-border">
-                  <th className="px-5 py-3 font-medium text-muted-foreground">State</th>
-                  <th className="px-5 py-3 font-medium text-muted-foreground">Role</th>
-                  <th className="px-5 py-3 font-medium text-muted-foreground">Invited by</th>
-                  <th className="px-5 py-3 font-medium text-muted-foreground">Created</th>
-                  <th className="px-5 py-3 font-medium text-muted-foreground">Join request</th>
-                  <th className="px-5 py-3 text-right font-medium text-muted-foreground">Action</th>
+                  <th className="px-5 py-3 font-medium text-muted-foreground">{t("companyInvites.history.columns.state")}</th>
+                  <th className="px-5 py-3 font-medium text-muted-foreground">{t("companyInvites.history.columns.role")}</th>
+                  <th className="px-5 py-3 font-medium text-muted-foreground">{t("companyInvites.history.columns.invitedBy")}</th>
+                  <th className="px-5 py-3 font-medium text-muted-foreground">{t("companyInvites.history.columns.created")}</th>
+                  <th className="px-5 py-3 font-medium text-muted-foreground">{t("companyInvites.history.columns.joinRequest")}</th>
+                  <th className="px-5 py-3 text-right font-medium text-muted-foreground">{t("companyInvites.history.columns.action")}</th>
                 </tr>
               </thead>
               <tbody>
@@ -662,10 +671,10 @@ function CompanyInvitesPreview() {
                     <td className="px-5 py-3 text-right align-top">
                       {invite.action === "Revoke" ? (
                         <Button type="button" size="sm" variant="outline">
-                          Revoke
+                          {t("companyInvites.history.revoke")}
                         </Button>
                       ) : (
-                        <span className="text-xs text-muted-foreground">Inactive</span>
+                        <span className="text-xs text-muted-foreground">{t("companyInvites.history.inactive")}</span>
                       )}
                     </td>
                   </tr>
@@ -676,15 +685,15 @@ function CompanyInvitesPreview() {
 
           <div className="grid gap-3 md:grid-cols-2">
             <div className="rounded-2xl border border-border p-4">
-              <div className="text-sm font-medium">Empty history state</div>
+              <div className="text-sm font-medium">{t("uxLab.companyInvitesPreview.emptyHistory")}</div>
               <div className="mt-2 text-sm text-muted-foreground">
-                No invites have been created for this company yet.
+                {t("uxLab.companyInvitesPreview.emptyHistoryDescription")}
               </div>
             </div>
             <div className="rounded-2xl border border-rose-400/40 bg-rose-500/[0.07] p-4">
-              <div className="text-sm font-medium text-foreground">Permission error</div>
+              <div className="text-sm font-medium text-foreground">{t("uxLab.companyInvitesPreview.permissionError")}</div>
               <div className="mt-2 text-sm text-muted-foreground">
-                You do not have permission to manage company invites.
+                {t("uxLab.companyInvitesPreview.permissionErrorDescription")}
               </div>
             </div>
           </div>
@@ -695,6 +704,16 @@ function CompanyInvitesPreview() {
 }
 
 export function InviteUxLab() {
+  const { t } = useTranslation("invites");
+
+  const coveredStates = [
+    t("uxLab.coveredStates.items.0"),
+    t("uxLab.coveredStates.items.1"),
+    t("uxLab.coveredStates.items.2"),
+    t("uxLab.coveredStates.items.3"),
+    t("uxLab.coveredStates.items.4"),
+  ];
+
   return (
     <div className="space-y-6">
       <div className="overflow-hidden rounded-[32px] border border-border/70 bg-[linear-gradient(135deg,rgba(8,145,178,0.10),transparent_28%),linear-gradient(180deg,rgba(245,158,11,0.10),transparent_44%),var(--background)] shadow-[0_30px_80px_rgba(15,23,42,0.10)]">
@@ -702,38 +721,32 @@ export function InviteUxLab() {
           <div className="p-6 sm:p-7">
             <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/25 bg-cyan-500/[0.08] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.24em] text-cyan-700 dark:text-cyan-300">
               <FlaskConical className="h-3.5 w-3.5" />
-              Invite UX Lab
+              {t("uxLab.badge")}
             </div>
-            <h1 className="mt-4 text-3xl font-semibold tracking-tight">Invite and signup UX review surface</h1>
+            <h1 className="mt-4 text-3xl font-semibold tracking-tight">{t("uxLab.title")}</h1>
             <p className="mt-3 max-w-3xl text-sm leading-6 text-muted-foreground">
-              This page collects the current invite landing, signup, approval-result, and company invite-management states in one place so styling changes can be reviewed without recreating each backend condition by hand.
+              {t("uxLab.description")}
             </p>
 
             <div className="mt-5 flex flex-wrap items-center gap-2">
               <Badge variant="outline" className="rounded-full px-3 py-1 text-[10px] uppercase tracking-[0.18em]">
-                /tests/ux/invites
+                {t("uxLab.tags.route")}
               </Badge>
               <Badge variant="outline" className="rounded-full px-3 py-1 text-[10px] uppercase tracking-[0.18em]">
-                signup + invite states
+                {t("uxLab.tags.signupInvite")}
               </Badge>
               <Badge variant="outline" className="rounded-full px-3 py-1 text-[10px] uppercase tracking-[0.18em]">
-                fixture-backed preview
+                {t("uxLab.tags.fixture")}
               </Badge>
             </div>
           </div>
 
           <aside className="border-t border-border/60 bg-background/70 p-6 lg:border-l lg:border-t-0">
             <div className="mb-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-              Covered states
+              {t("uxLab.coveredStates.title")}
             </div>
             <div className="space-y-3">
-              {[
-                "Invite loading, access-check, missing-token, and unavailable states",
-                "Inline account creation and sign-in variants, including feedback/error copy",
-                "Human accept, agent request, and auto-accept transitions",
-                "Pending approval, joined-now, claim secret, and onboarding result screens",
-                "Company invite creation, copied-link, history, empty, and permission-error states",
-              ].map((highlight) => (
+              {coveredStates.map((highlight) => (
                 <div
                   key={highlight}
                   className="rounded-2xl border border-border/70 bg-background/85 px-4 py-3 text-sm text-muted-foreground"
@@ -747,71 +760,71 @@ export function InviteUxLab() {
       </div>
 
       <LabSection
-        eyebrow="Top-level states"
-        title="Landing state coverage"
-        description="Small cards for the fast-return invite states that do not render the full split-screen layout."
+        eyebrow={t("uxLab.topLevelStates.eyebrow")}
+        title={t("uxLab.topLevelStates.title")}
+        description={t("uxLab.topLevelStates.description")}
         accentClassName="bg-[linear-gradient(180deg,rgba(59,130,246,0.05),transparent_30%),var(--background)]"
       >
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           <StatusCard
             icon={<Loader2 className="h-4 w-4 animate-spin" />}
-            title="Loading invite"
-            body="Shown while invite summary, deployment mode, or auth session data is still loading."
+            title={t("uxLab.statusCards.loadingInvite.title")}
+            body={t("uxLab.statusCards.loadingInvite.body")}
           />
           <StatusCard
             icon={<Clock3 className="h-4 w-4" />}
-            title="Checking your access"
-            body="Shown after sign-in while the app verifies whether the current user already belongs to the invited company."
+            title={t("uxLab.statusCards.checkingAccess.title")}
+            body={t("uxLab.statusCards.checkingAccess.body")}
           />
           <StatusCard
             icon={<KeyRound className="h-4 w-4" />}
-            title="Invalid invite token"
-            body="The token is missing entirely, so the page short-circuits before any invite lookup."
+            title={t("uxLab.statusCards.invalidToken.title")}
+            body={t("uxLab.statusCards.invalidToken.body")}
             tone="error"
           />
           <StatusCard
             icon={<Link2 className="h-4 w-4" />}
-            title="Invite not available"
-            body="Used for expired, revoked, already-consumed, or otherwise missing invites."
+            title={t("uxLab.statusCards.notAvailable.title")}
+            body={t("uxLab.statusCards.notAvailable.body")}
             tone="warn"
           />
           <StatusCard
             icon={<ShieldCheck className="h-4 w-4" />}
-            title="Bootstrap complete"
-            body="Result screen for bootstrap CEO invites after setup has been accepted successfully."
+            title={t("uxLab.statusCards.bootstrapComplete.title")}
+            body={t("uxLab.statusCards.bootstrapComplete.body")}
             tone="success"
           />
           <StatusCard
             icon={<ArrowRight className="h-4 w-4" />}
-            title="Auto-accept in progress"
-            body="Signed-in human users skip the extra button click and move straight into join submission."
+            title={t("uxLab.statusCards.autoAccept.title")}
+            body={t("uxLab.statusCards.autoAccept.body")}
           />
           <StatusCard
             icon={<Users className="h-4 w-4" />}
-            title="Already a member"
-            body="Acceptance stays disabled and the page redirects into the company once membership is confirmed."
+            title={t("uxLab.statusCards.alreadyMember.title")}
+            body={t("uxLab.statusCards.alreadyMember.body")}
           />
           <StatusCard
             icon={<UserPlus className="h-4 w-4" />}
-            title="Invite result surfaces"
-            body="Both pending-approval and joined-now confirmations are included below with claim and onboarding extras."
+            title={t("uxLab.statusCards.resultSurfaces.title")}
+            body={t("uxLab.statusCards.resultSurfaces.body")}
             tone="success"
           />
         </div>
       </LabSection>
 
       <LabSection
-        eyebrow="Invite landing"
-        title="Split-screen invite flows"
-        description="These frames mirror the production invite surface closely enough to review spacing, hierarchy, and control states while keeping data fixture-driven."
+        eyebrow={t("uxLab.inviteLanding.eyebrow")}
+        title={t("uxLab.inviteLanding.title")}
+        description={t("uxLab.inviteLanding.description")}
         accentClassName="bg-[linear-gradient(180deg,rgba(234,179,8,0.06),transparent_28%),var(--background)]"
       >
         <div className="space-y-5">
           <InviteLandingShell
             left={
               <InviteSummaryPanel
-                title="Join Acme Robotics"
-                description="Create your Paperclip account first. If you already have one, switch to sign in and continue the invite with the same email."
+                title={t("uxLab.inviteSummary.joinCompany", { companyName: "Acme Robotics" })}
+                description={t("uxLab.inviteSummary.createAccountDescription")}
                 inviteMessage="Welcome aboard."
                 requestedAccess="Operator"
               />
@@ -822,8 +835,8 @@ export function InviteUxLab() {
           <InviteLandingShell
             left={
               <InviteSummaryPanel
-                title="Join Acme Robotics"
-                description="Create your Paperclip account first. If you already have one, switch to sign in and continue the invite with the same email."
+                title={t("uxLab.inviteSummary.joinCompany", { companyName: "Acme Robotics" })}
+                description={t("uxLab.inviteSummary.createAccountDescription")}
                 inviteMessage="Welcome aboard."
                 requestedAccess="Operator"
               />
@@ -842,8 +855,8 @@ export function InviteUxLab() {
           <InviteLandingShell
             left={
               <InviteSummaryPanel
-                title="Join Acme Robotics"
-                description="Your account is ready. Review the invite details, then accept it to continue."
+                title={t("uxLab.inviteSummary.joinCompany", { companyName: "Acme Robotics" })}
+                description={t("uxLab.inviteSummary.readyDescription")}
                 inviteMessage="Welcome aboard."
                 requestedAccess="Operator"
                 signedInLabel="Jane Example"
@@ -855,8 +868,8 @@ export function InviteUxLab() {
           <InviteLandingShell
             left={
               <InviteSummaryPanel
-                title="Join Acme Robotics"
-                description="Review the invite details, then submit the agent information below to start the join request."
+                title={t("uxLab.inviteSummary.joinCompany", { companyName: "Acme Robotics" })}
+                description={t("uxLab.inviteSummary.reviewAgentDescription")}
                 requestedAccess="Agent join request"
               />
             }
@@ -866,8 +879,8 @@ export function InviteUxLab() {
           <InviteLandingShell
             left={
               <InviteSummaryPanel
-                title="Join Acme Robotics"
-                description="Your account is ready. Review the invite details, then accept it to continue."
+                title={t("uxLab.inviteSummary.joinCompany", { companyName: "Acme Robotics" })}
+                description={t("uxLab.inviteSummary.readyDescription")}
                 requestedAccess="Operator"
                 signedInLabel="Jane Example"
               />
@@ -878,34 +891,34 @@ export function InviteUxLab() {
       </LabSection>
 
       <LabSection
-        eyebrow="Result states"
-        title="Approval and completion screens"
-        description="These are the post-submit states returned from invite acceptance, including optional claim and onboarding metadata."
+        eyebrow={t("uxLab.resultStates.eyebrow")}
+        title={t("uxLab.resultStates.title")}
+        description={t("uxLab.resultStates.description")}
         accentClassName="bg-[linear-gradient(180deg,rgba(16,185,129,0.06),transparent_30%),var(--background)]"
       >
         <div className="grid gap-5 xl:grid-cols-3">
           <InviteResultPreview
-            title="Request to join Acme Robotics"
-            description="Board User must approve your request to join."
+            title={t("uxLab.inviteResult.requestToJoin", { companyName: "Acme Robotics" })}
+            description={t("uxLab.inviteResult.approverMustApprove", { inviter: "Board User" })}
             claimSecret="pcp_claim_secret_demo"
             onboardingTextUrl="/api/invites/pcp_invite_test/onboarding.txt"
           />
           <InviteResultPreview
-            title="You joined the company"
-            description="Your account already matched the approved invite, so the board can be opened immediately."
+            title={t("uxLab.inviteResult.joinedNow")}
+            description={t("uxLab.inviteResult.joinedNowDescription")}
             joinedNow
           />
           <InviteResultPreview
-            title="Request to join Acme Robotics"
-            description="Ask them to visit Company Settings → Access to approve your request."
+            title={t("uxLab.inviteResult.requestToJoin", { companyName: "Acme Robotics" })}
+            description={t("uxLab.inviteResult.askToVisit")}
           />
         </div>
       </LabSection>
 
       <LabSection
-        eyebrow="Standalone auth"
-        title="Auth page states"
-        description="The general `/auth` page uses a different composition from invite landing. These previews keep both sign-in and sign-up variants visible."
+        eyebrow={t("uxLab.standaloneAuth.eyebrow")}
+        title={t("uxLab.standaloneAuth.title")}
+        description={t("uxLab.standaloneAuth.description")}
         accentClassName="bg-[linear-gradient(180deg,rgba(168,85,247,0.06),transparent_28%),var(--background)]"
       >
         <div className="space-y-5">
@@ -915,9 +928,9 @@ export function InviteUxLab() {
       </LabSection>
 
       <LabSection
-        eyebrow="Company settings"
-        title="Company invite management"
-        description="This section captures the board-side invite creation flow, copied-link state, audit table, and the edge states that are otherwise tedious to stage."
+        eyebrow={t("uxLab.companySettings.eyebrow")}
+        title={t("uxLab.companySettings.title")}
+        description={t("uxLab.companySettings.description")}
         accentClassName="bg-[linear-gradient(180deg,rgba(244,114,182,0.06),transparent_28%),var(--background)]"
       >
         <CompanyInvitesPreview />
