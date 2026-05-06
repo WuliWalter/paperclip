@@ -8,6 +8,7 @@ import type enSettings from "./locales/en/settings.json";
 import type enAdapters from "./locales/en/adapters.json";
 import type enDashboard from "./locales/en/dashboard.json";
 import type enInbox from "./locales/en/inbox.json";
+import type enActivity from "./locales/en/activity.json";
 
 declare module "react-i18next" {
   interface CustomTypeOptions {
@@ -22,6 +23,7 @@ declare module "react-i18next" {
       adapters: typeof enAdapters;
       dashboard: typeof enDashboard;
       inbox: typeof enInbox;
+      activity: typeof enActivity;
     };
   }
 }
