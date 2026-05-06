@@ -58,7 +58,7 @@ export function CompanySettingsSidebar() {
           <SidebarNavItem to="/company/settings" label={t("sidebar.general")} icon={SlidersHorizontal} end />
           <SidebarNavItem
             to="/company/settings/environments"
-            label="Environments"
+            label={t("sidebar.environments")}
             icon={MonitorCog}
             end
           />

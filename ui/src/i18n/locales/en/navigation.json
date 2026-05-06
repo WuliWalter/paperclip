@@ -24,7 +24,8 @@
     "experimental": "Experimental",
     "plugins": "Plugins",
     "adapters": "Adapters",
-    "invites": "Invites"
+    "invites": "Invites",
+    "environments": "Environments"
   },
   "breadcrumbs": {
     "dashboard": "Dashboard",

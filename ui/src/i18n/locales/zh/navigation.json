@@ -24,7 +24,8 @@
     "experimental": "实验性功能",
     "plugins": "插件",
     "adapters": "适配器",
-    "invites": "邀请"
+    "invites": "邀请",
+    "environments": "环境"
   },
   "breadcrumbs": {
     "dashboard": "仪表盘",
