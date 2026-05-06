@@ -39,6 +39,8 @@
     "ceoHint": "这将是 CEO",
     "creating": "创建中…",
     "create": "创建智能体",
+    "testing": "测试中…",
+    "testAgent": "测试智能体",
     "errors": {
       "createFailed": "无法创建智能体",
       "opencodeModelFormat": "OpenCode 需要显式的 provider/model 格式模型。",

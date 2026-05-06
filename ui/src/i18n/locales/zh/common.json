@@ -179,7 +179,10 @@
     "openMenuFor": "打开 {{name}} 菜单",
     "selectCompany": "选择公司",
     "company": "公司",
- "invitePeople": "邀请人员",
+    "switchWorkspace": "切换工作区",
+    "noWorkspaces": "暂无工作区",
+    "addCompany": "添加公司...",
+    "invitePeople": "邀请人员",
     "invitePeopleTo": "邀请人员加入 {{companyName}}"
   },
   "actor": {

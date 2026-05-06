@@ -179,6 +179,9 @@
     "openMenuFor": "Open {{name}} menu",
     "selectCompany": "Select company",
     "company": "Company",
+    "switchWorkspace": "Switch workspace",
+    "noWorkspaces": "No workspaces",
+    "addCompany": "Add company...",
     "invitePeople": "Invite people",
     "invitePeopleTo": "Invite people to {{companyName}}"
   },

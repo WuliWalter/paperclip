@@ -39,6 +39,8 @@
     "ceoHint": "This will be the CEO",
     "creating": "Creating…",
     "create": "Create agent",
+    "testing": "Testing…",
+    "testAgent": "Test Agent",
     "errors": {
       "createFailed": "Failed to create agent",
       "opencodeModelFormat": "OpenCode requires an explicit model in provider/model format.",
