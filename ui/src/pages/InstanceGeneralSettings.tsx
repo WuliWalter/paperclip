@@ -8,10 +8,12 @@ import {
   DEFAULT_BACKUP_RETENTION,
 } from "@paperclipai/shared";
 import { LogOut, SlidersHorizontal } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { authApi } from "@/api/auth";
 import { healthApi } from "@/api/health";
 import { instanceSettingsApi } from "@/api/instanceSettings";
 import { ModeBadge } from "@/components/access/ModeBadge";
+import { LocaleSwitcher } from "@/components/LocaleSwitcher";
 import { Button } from "../components/ui/button";
 import { useBreadcrumbs } from "../context/BreadcrumbContext";
 import { queryKeys } from "../lib/queryKeys";
@@ -21,6 +23,7 @@ import { cn } from "../lib/utils";
 const FEEDBACK_TERMS_URL = import.meta.env.VITE_FEEDBACK_TERMS_URL?.trim() || "https://paperclip.ing/tos";
 
 export function InstanceGeneralSettings() {
+  const { t } = useTranslation("settings");
   const { setBreadcrumbs } = useBreadcrumbs();
   const queryClient = useQueryClient();
   const [actionError, setActionError] = useState<string | null>(null);
@@ -131,6 +134,18 @@ export function InstanceGeneralSettings() {
               value={healthQuery.data?.bootstrapInviteActive ? "Active" : "None"}
             />
           </div>
+        </div>
+      </section>
+
+      <section className="rounded-xl border border-border bg-card p-5">
+        <div className="flex items-start justify-between gap-4">
+          <div className="space-y-1.5">
+            <h2 className="text-sm font-semibold">{t("language")}</h2>
+            <p className="max-w-2xl text-sm text-muted-foreground">
+              {t("languageDescription")}
+            </p>
+          </div>
+          <LocaleSwitcher />
         </div>
       </section>
 

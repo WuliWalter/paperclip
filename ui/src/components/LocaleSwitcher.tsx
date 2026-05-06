@@ -1,4 +1,5 @@
 import { useLocale } from "@/i18n/LocaleContext";
+import { useTranslation } from "react-i18next";
 import {
   Select,
   SelectContent,
@@ -14,6 +15,7 @@ const LOCALE_LABELS: Record<string, string> = {
 
 export function LocaleSwitcher() {
   const { locale, setLocale, supportedLocales } = useLocale();
+  const { t } = useTranslation("settings");
 
   return (
     <Select
@@ -23,7 +25,7 @@ export function LocaleSwitcher() {
       }}
     >
       <SelectTrigger className="w-[120px]">
-        <SelectValue placeholder="Language" />
+        <SelectValue placeholder={t("language")} />
       </SelectTrigger>
       <SelectContent>
         {supportedLocales.map((lng) => (

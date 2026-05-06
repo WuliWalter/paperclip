@@ -182,6 +182,11 @@
     "invitePeople": "Invite people",
     "invitePeopleTo": "Invite people to {{companyName}}"
   },
+  "actor": {
+    "system": "System",
+    "board": "Board",
+    "unknown": "Unknown"
+  },
   "projectActions": {
     "projectPausedByBudget": "Project paused by budget"
   }

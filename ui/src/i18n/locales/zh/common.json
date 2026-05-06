@@ -182,6 +182,11 @@
  "invitePeople": "邀请人员",
     "invitePeopleTo": "邀请人员加入 {{companyName}}"
   },
+  "actor": {
+    "system": "系统",
+    "board": "面板",
+    "unknown": "未知"
+  },
   "projectActions": {
     "projectPausedByBudget": "项目因预算暂停"
   }

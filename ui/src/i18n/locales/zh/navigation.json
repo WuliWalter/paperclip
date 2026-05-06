@@ -29,7 +29,9 @@
   "breadcrumbs": {
     "dashboard": "仪表盘",
     "agents": "智能体",
-    "issues": "事项"
+    "issues": "事项",
+    "myIssues": "我的事项",
+    "liveRuns": "实时运行"
   },
   "mobileNav": {
     "home": "首页",

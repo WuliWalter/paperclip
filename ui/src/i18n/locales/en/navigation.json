@@ -29,7 +29,9 @@
   "breadcrumbs": {
     "dashboard": "Dashboard",
     "agents": "Agents",
-    "issues": "Issues"
+    "issues": "Issues",
+    "myIssues": "My Issues",
+    "liveRuns": "Live runs"
   },
   "mobileNav": {
     "home": "Home",

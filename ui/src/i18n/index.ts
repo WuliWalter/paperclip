@@ -10,6 +10,7 @@ import enApprovals from "./locales/en/approvals.json";
 import enSettings from "./locales/en/settings.json";
 import enAdapters from "./locales/en/adapters.json";
 import enDashboard from "./locales/en/dashboard.json";
+import enInbox from "./locales/en/inbox.json";
 
 import zhCommon from "./locales/zh/common.json";
 import zhNavigation from "./locales/zh/navigation.json";
@@ -19,6 +20,7 @@ import zhApprovals from "./locales/zh/approvals.json";
 import zhSettings from "./locales/zh/settings.json";
 import zhAdapters from "./locales/zh/adapters.json";
 import zhDashboard from "./locales/zh/dashboard.json";
+import zhInbox from "./locales/zh/inbox.json";
 
 const resources = {
   en: {
@@ -30,6 +32,7 @@ const resources = {
     settings: enSettings,
     adapters: enAdapters,
     dashboard: enDashboard,
+    inbox: enInbox,
   },
   zh: {
     common: zhCommon,
@@ -40,6 +43,7 @@ const resources = {
     settings: zhSettings,
     adapters: zhAdapters,
     dashboard: zhDashboard,
+    inbox: zhInbox,
   },
 };
 

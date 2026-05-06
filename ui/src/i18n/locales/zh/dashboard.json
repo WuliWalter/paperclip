@@ -41,6 +41,17 @@
     "finished": "已完成 {{time}}",
     "started": "已开始 {{time}}"
   },
+  "liveRuns": {
+    "breadcrumb": "实时运行",
+    "selectCompany": "选择公司以查看实时运行。",
+    "createCompany": "创建公司以查看实时运行。",
+    "backToDashboard": "仪表盘",
+    "title": "实时智能体运行",
+    "description": "先显示活跃运行，然后显示最近完成的运行。",
+    "showingUpTo": "最多显示 {{limit}} 个",
+    "activeRecent": "活跃 / 近期",
+    "noRuns": "暂无活跃或近期的智能体运行。"
+  },
   "chartEmpty": {
     "noRuns": "暂无运行",
     "noIssues": "暂无任务"
