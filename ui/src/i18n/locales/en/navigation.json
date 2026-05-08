@@ -24,10 +24,20 @@
     "experimental": "Experimental",
     "plugins": "Plugins",
     "adapters": "Adapters",
-    "invites": "Invites"
+    "skills": "Skills",
+    "invites": "Invites",
+    "environments": "Environments"
   },
   "breadcrumbs": {
-    "dashboard": "Dashboard"
+    "dashboard": "Dashboard",
+    "agents": "Agents",
+    "issues": "Issues",
+    "myIssues": "My Issues",
+    "liveRuns": "Live runs",
+    "inbox": "Inbox",
+    "users": "Users",
+    "projects": "Projects",
+    "workspaces": "Workspaces"
   },
   "mobileNav": {
     "home": "Home",
