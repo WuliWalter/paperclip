@@ -38,7 +38,6 @@ import { useCompanyOrder } from "@/hooks/useCompanyOrder";
 import { queryKeys } from "@/lib/queryKeys";
 import { cn } from "@/lib/utils";
 import { useSidebar } from "../context/SidebarContext";
-import { useTranslation } from "react-i18next";
 import { CompanyPatternIcon } from "./CompanyPatternIcon";
 
 interface SidebarCompanyMenuProps {
@@ -136,7 +135,6 @@ export function SidebarCompanyMenu({ open: controlledOpen, onOpenChange }: Sideb
   const { companies, selectedCompany, setSelectedCompanyId } = useCompany();
   const { openOnboarding } = useDialogActions();
   const { isMobile, setSidebarOpen } = useSidebar();
-  const { t } = useTranslation();
   const location = useLocation();
   const navigate = useNavigate();
   const open = controlledOpen ?? internalOpen;
@@ -227,13 +225,12 @@ export function SidebarCompanyMenu({ open: controlledOpen, onOpenChange }: Sideb
         <Button
           variant="ghost"
           className="h-9 flex-1 justify-start gap-2 px-2 text-left"
-          aria-label={selectedCompany ? t("sidebarCompanyMenu.openMenuFor", { name: selectedCompany.name }) : t("sidebarCompanyMenu.openCompanyMenu")}
-          disabled={!selectedCompany}
+          aria-label={selectedCompany ? `Open ${selectedCompany.name} workspace switcher` : "Open workspace switcher"}
         >
           <span className="flex min-w-0 flex-1 items-center gap-2">
             {selectedCompany ? <WorkspaceIcon company={selectedCompany} /> : null}
             <span className="truncate text-sm font-bold text-foreground">
-              {selectedCompany?.name ?? t("sidebarCompanyMenu.selectCompany")}
+              {selectedCompany?.name ?? "Select workspace"}
             </span>
           </span>
           <ChevronsUpDown className="size-3.5 shrink-0 text-muted-foreground" />
@@ -288,7 +285,7 @@ export function SidebarCompanyMenu({ open: controlledOpen, onOpenChange }: Sideb
           disabled={isEditingOrder}
         >
           <Plus className="size-4" />
-          <span>{t("sidebarCompanyMenu.addCompany")}</span>
+          <span>Add company...</span>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem asChild disabled={isEditingOrder}>
@@ -304,7 +301,7 @@ export function SidebarCompanyMenu({ open: controlledOpen, onOpenChange }: Sideb
           >
             <UserPlus className="size-4" />
             <span className="truncate">
-              {selectedCompany ? t("sidebarCompanyMenu.invitePeopleTo", { companyName: selectedCompany.name }) : t("sidebarCompanyMenu.invitePeople")}
+              {selectedCompany ? `Invite people to ${selectedCompany.name}` : "Invite people"}
             </span>
           </Link>
         </DropdownMenuItem>
@@ -320,7 +317,7 @@ export function SidebarCompanyMenu({ open: controlledOpen, onOpenChange }: Sideb
             }}
           >
             <Settings className="size-4" />
-            <span>{t("sidebar.companySettings", { ns: "navigation" })}</span>
+            <span>Company settings</span>
           </Link>
         </DropdownMenuItem>
         {session?.session ? (
@@ -332,7 +329,7 @@ export function SidebarCompanyMenu({ open: controlledOpen, onOpenChange }: Sideb
               disabled={isEditingOrder || signOutMutation.isPending}
             >
               <LogOut className="size-4" />
-              <span>{signOutMutation.isPending ? t("accountMenu.signingOut") : t("accountMenu.signOut")}</span>
+              <span>{signOutMutation.isPending ? "Signing out..." : "Sign out"}</span>
             </DropdownMenuItem>
           </>
         ) : null}

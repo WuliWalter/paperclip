@@ -10,7 +10,7 @@
   "openBudgets": "打开预算",
   "metrics": {
     "agentsEnabled": "已启用智能体",
-    "tasksInProgress": "进行中任务",
+    "tasksInProgress": "进行中待办",
     "monthSpend": "本月支出",
     "pendingApprovals": "待处理审批"
   },
@@ -24,14 +24,14 @@
   },
   "charts": {
     "runActivity": "运行活动",
-    "issuesByPriority": "按优先级查看任务",
-    "issuesByStatus": "按状态查看任务",
+    "issuesByPriority": "按优先级查看待办",
+    "issuesByStatus": "按状态查看待办",
     "successRate": "成功率",
     "last14Days": "最近 14 天"
   },
   "recentActivity": "最近活动",
-  "recentTasks": "最近任务",
-  "noTasksYet": "暂无任务。",
+  "recentTasks": "最近待办",
+  "noTasksYet": "暂无待办。",
   "activeAgents": {
     "title": "智能体",
     "noRecentRuns": "暂无近期运行。",
@@ -54,6 +54,6 @@
   },
   "chartEmpty": {
     "noRuns": "暂无运行",
-    "noIssues": "暂无任务"
+    "noIssues": "暂无待办"
   }
 }

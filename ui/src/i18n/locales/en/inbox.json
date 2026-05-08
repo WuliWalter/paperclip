@@ -22,6 +22,7 @@
   "markAllAsRead": "Mark all as read",
   "marking": "Marking...",
   "markAllConfirmTitle": "Mark all as read?",
+  "markAllConfirmDescription": "This will mark {{count}} unread items as read.",
   "categories": {
     "all": "Everything",
     "myIssues": "My issues",

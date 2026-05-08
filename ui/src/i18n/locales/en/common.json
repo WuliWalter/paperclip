@@ -5,7 +5,10 @@
     "delete": "Delete",
     "edit": "Edit",
     "create": "Create",
+    "new": "New",
     "remove": "Remove",
+    "pause": "Pause",
+    "resume": "Resume",
     "close": "Close",
     "confirm": "Confirm",
     "submit": "Submit",
@@ -26,7 +29,8 @@
     "approve": "Approve",
     "reject": "Reject",
     "assign": "Assign",
-    "unassign": "Unassign"
+    "unassign": "Unassign",
+    "choose": "Choose"
   },
   "status": {
     "active": "Active",
@@ -143,6 +147,46 @@
     "copyTooltip": "Click to copy worktree name",
     "copied": "Copied!"
   },
+  "copyFeedback": {
+    "clickToCopy": "Click to copy",
+    "copied": "Copied!"
+  },
+  "outputFeedback": {
+    "helpful": "Helpful",
+    "needsWork": "Needs work",
+    "whatCouldBeBetter": "What could have been better?",
+    "addShortNote": "Add a short note",
+    "dismiss": "Dismiss",
+    "saveNote": "Save note",
+    "saving": "Saving...",
+    "savePreferenceTitle": "Save your feedback sharing preference",
+    "savePreferenceDescription": "Choose whether voted AI outputs can be shared with Paperclip Labs. This answer becomes the default for future thumbs up and thumbs down votes.",
+    "voteSavedLocally": "This vote is always saved locally.",
+    "allowSharing": "Always allow",
+    "dontAllow": "Don't allow",
+    "readTerms": "Read our terms of service",
+    "sharingExplanation": "Choose Always allow to share this vote and future voted AI outputs. Choose Don't allow to keep this vote and future votes local.",
+    "changeLater": "You can change this later in Instance Settings > General."
+  },
+  "pathPicker": {
+    "title": "Specify path manually",
+    "description": "Browser security blocks apps from reading full local paths via a file picker. Copy the absolute path and paste it into the input.",
+    "macOS": "macOS (Finder)",
+    "macStep1": "Find the folder in Finder.",
+    "macStep2": "Hold Option and right-click the folder.",
+    "macStep3": "Copy the folder as Pathname.",
+    "macStep4": "Paste the result into the path input.",
+    "windows": "Windows (File Explorer)",
+    "winStep1": "Find the folder in File Explorer.",
+    "winStep2": "Hold Shift and right-click the folder.",
+    "winStep3": "Copy as path.",
+    "winStep4": "Paste the result into the path input.",
+    "terminal": "Terminal fallback (macOS/Linux)",
+    "termStep1": "Run cd /path/to/folder.",
+    "termStep2": "Run pwd.",
+    "termStep3": "Copy the output and paste it into the path input.",
+    "ok": "OK"
+  },
   "devRestartBanner": {
     "restartRequired": "Restart Required",
     "autoRestartOn": "Auto-Restart On",
@@ -164,6 +208,43 @@
     "mobileNavigation": "Mobile navigation"
   },
   "properties": "Properties",
+  "keyboardShortcuts": {
+    "title": "Keyboard shortcuts",
+    "pressToClose": "Press",
+    "toClose": "to close",
+    "disabledInTextFields": "Shortcuts are disabled in text fields",
+    "then": "then",
+    "sections": {
+      "inbox": "Inbox",
+      "issueDetail": "Issue detail",
+      "global": "Global"
+    },
+    "labels": {
+      "moveDown": "Move down",
+      "moveUp": "Move up",
+      "collapseSelectedGroup": "Collapse selected group",
+      "expandSelectedGroup": "Expand selected group",
+      "openSelectedItem": "Open selected item",
+      "archiveItem": "Archive item",
+      "markAsRead": "Mark as read",
+      "markAsUnread": "Mark as unread",
+      "quickArchiveBackToInbox": "Quick-archive back to inbox",
+      "goToInbox": "Go to inbox",
+      "focusCommentComposer": "Focus comment composer",
+      "searchCurrentPage": "Search current page or quick search",
+      "newIssue": "New issue",
+      "toggleSidebar": "Toggle sidebar",
+      "togglePanel": "Toggle panel",
+      "showKeyboardShortcuts": "Show keyboard shortcuts"
+    }
+  },
+  "pathHelp": {
+    "title": "How to get a full path",
+    "description": "Paste the absolute path into the input field.",
+    "macOS": "macOS",
+    "windows": "Windows",
+    "linux": "Linux"
+  },
   "notFound": {
     "notFound": "Not Found",
     "companyNotFound": "Company not found",
@@ -179,15 +260,68 @@
     "openMenuFor": "Open {{name}} menu",
     "selectCompany": "Select company",
     "company": "Company",
+    "switchWorkspace": "Switch workspace",
+    "noWorkspaces": "No workspaces",
+    "addCompany": "Add company...",
     "invitePeople": "Invite people",
     "invitePeopleTo": "Invite people to {{companyName}}"
   },
   "actor": {
     "system": "System",
     "board": "Board",
+    "agent": "Agent",
+    "you": "You",
+    "user": "User",
+    "unassigned": "Unassigned",
+    "none": "None",
     "unknown": "Unknown"
+  },
+  "diffModal": {
+    "title": "Diff",
+    "oldBadge": "Old",
+    "newBadge": "New",
+    "selectRevision": "Select revision",
+    "loadingRevisions": "Loading revisions...",
+    "selectTwoRevisions": "Select two revisions to compare.",
+    "sameRevision": "Both sides are the same revision.",
+    "oldColumn": "Old",
+    "newColumn": "New",
+    "contentColumn": "Content"
   },
   "projectActions": {
     "projectPausedByBudget": "Project paused by budget"
+  },
+  "userProfile": {
+    "allTimeTokens": "All-time tokens",
+    "completed": "Completed",
+    "openAssigned": "Open assigned",
+    "sevenDayActions": "7-day actions",
+    "spent": "spent",
+    "rate": "rate",
+    "created": "Created",
+    "touched": "Touched",
+    "comments": "Comments",
+    "actions": "Actions",
+    "tokens": "Tokens",
+    "spend": "Spend",
+    "open": "Open",
+    "last14Days": "Last 14 days",
+    "tokensTotal": "tokens total",
+    "tokensPerDay": "tokens / day",
+    "completions": "completions",
+    "recentTasks": "Recent tasks",
+    "noTouchedTasks": "No touched tasks yet.",
+    "recentActivity": "Recent activity",
+    "noDirectActions": "No direct user actions recorded yet.",
+    "agentAttribution": "Agent attribution",
+    "noIssueLinkedUsage": "No issue-linked token usage yet.",
+    "providerMix": "Provider mix",
+    "noProviderUsage": "No provider usage attributed yet.",
+    "issueLinkedUsage": "Issue-linked usage",
+    "billedThrough": "Billed through {{name}}",
+    "selectCompany": "Select a company to view user profiles.",
+    "profileNotFound": "User profile not found for this company.",
+    "user": "User",
+    "joined": "joined {{date}}"
   }
 }

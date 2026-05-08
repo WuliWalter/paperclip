@@ -7,7 +7,6 @@ import { cn } from "../lib/utils";
 import { formatActivityVerb } from "../lib/activity-format";
 import { deriveProjectUrlKey, type ActivityEvent, type Agent } from "@paperclipai/shared";
 import type { CompanyUserProfile } from "../lib/company-members";
-import { useTranslation } from "react-i18next";
 
 function entityLink(entityType: string, entityId: string, name?: string | null): string | null {
   switch (entityType) {
@@ -47,10 +46,9 @@ export function ActivityRow({ event, agentMap, userProfileMap, entityNameMap, en
     ? `/agents/${heartbeatAgentId}/runs/${event.entityId}`
     : entityLink(event.entityType, event.entityId, name);
 
-  const { t } = useTranslation();
   const actor = event.actorType === "agent" ? agentMap.get(event.actorId) : null;
   const userProfile = event.actorType === "user" ? userProfileMap?.get(event.actorId) : null;
-  const actorName = actor?.name ?? (event.actorType === "system" ? t("common:actor.system") : userProfile?.label ?? (event.actorType === "user" ? t("common:actor.board") : event.actorId || t("common:actor.unknown")));
+  const actorName = actor?.name ?? (event.actorType === "system" ? "System" : userProfile?.label ?? (event.actorType === "user" ? "Board" : event.actorId || "Unknown"));
   const actorAvatarUrl = userProfile?.image ?? null;
 
   const inner = (
