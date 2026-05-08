@@ -5,6 +5,7 @@
  * They just register a ServerAdapterModule that provides model discovery and execution.
  */
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { AlertTriangle, Cpu, Plus, Power, Trash2, FolderOpen, Package, RefreshCw, Download } from "lucide-react";
 import { useCompany } from "@/context/CompanyContext";

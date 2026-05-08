@@ -58,7 +58,6 @@ import { getAdapterDisplay, getAdapterLabel } from "../adapters/adapter-display-
 import { useDisabledAdaptersSync } from "../adapters/use-disabled-adapters";
 import { buildAgentUpdatePatch, type AgentConfigOverlay } from "../lib/agent-config-patch";
 import { useAdapterCapabilities } from "../adapters/use-adapter-capabilities";
-import { filterAcpxModelsByAgent } from "../lib/acpx-model-filter";
 
 /* ---- Create mode values ---- */
 
@@ -371,21 +370,9 @@ export function AgentConfigForm(props: AgentConfigFormProps) {
   });
   const [refreshModelsError, setRefreshModelsError] = useState<string | null>(null);
   const [refreshingModels, setRefreshingModels] = useState(false);
-  const rawModels = fetchedModels ?? externalModels ?? [];
+  const models = fetchedModels ?? externalModels ?? [];
   const adapterCommandField =
     adapterType === "hermes_local" ? "hermesCommand" : "command";
-  const acpxAgent =
-    adapterType === "acpx_local"
-      ? isCreate
-        ? String(val!.adapterSchemaValues?.agent ?? "claude")
-        : eff("adapterConfig", "agent", String(config.agent ?? "claude"))
-      : "";
-  const models = useMemo(
-    () => adapterType === "acpx_local"
-      ? filterAcpxModelsByAgent(rawModels, acpxAgent)
-      : rawModels,
-    [adapterType, rawModels, acpxAgent],
-  );
   const {
     data: detectedModelData,
     refetch: refetchDetectedModel,
@@ -550,23 +537,19 @@ export function AgentConfigForm(props: AgentConfigFormProps) {
   const thinkingEffortKey =
     adapterType === "codex_local"
       ? "modelReasoningEffort"
-      : adapterType === "acpx_local" && acpxAgent === "codex"
-        ? "modelReasoningEffort"
-        : adapterType === "cursor"
-          ? "mode"
-          : adapterType === "opencode_local"
-            ? "variant"
-            : "effort";
+      : adapterType === "cursor"
+        ? "mode"
+        : adapterType === "opencode_local"
+          ? "variant"
+          : "effort";
   const thinkingEffortOptions =
     adapterType === "codex_local"
-      ? codexThinkingEffortOptions
-      : adapterType === "acpx_local" && acpxAgent === "codex"
-        ? codexThinkingEffortOptions
-        : adapterType === "cursor"
-          ? cursorModeOptions
-          : adapterType === "opencode_local"
-            ? openCodeThinkingEffortOptions
-            : claudeThinkingEffortOptions;
+      ? getCodexThinkingEffortOptions(t)
+      : adapterType === "cursor"
+        ? getCursorModeOptions(t)
+        : adapterType === "opencode_local"
+          ? getOpenCodeThinkingEffortOptions(t)
+          : getClaudeThinkingEffortOptions(t);
   const currentThinkingEffort = isCreate
     ? val!.thinkingEffort
     : adapterType === "codex_local"
@@ -575,17 +558,11 @@ export function AgentConfigForm(props: AgentConfigFormProps) {
           "modelReasoningEffort",
           String(config.modelReasoningEffort ?? config.reasoningEffort ?? ""),
         )
-      : adapterType === "acpx_local" && acpxAgent === "codex"
-        ? eff(
-            "adapterConfig",
-            "modelReasoningEffort",
-            String(config.modelReasoningEffort ?? config.reasoningEffort ?? config.effort ?? ""),
-          )
-        : adapterType === "cursor"
-          ? eff("adapterConfig", "mode", String(config.mode ?? ""))
-          : adapterType === "opencode_local"
-            ? eff("adapterConfig", "variant", String(config.variant ?? ""))
-            : eff("adapterConfig", "effort", String(config.effort ?? ""));
+      : adapterType === "cursor"
+        ? eff("adapterConfig", "mode", String(config.mode ?? ""))
+      : adapterType === "opencode_local"
+        ? eff("adapterConfig", "variant", String(config.variant ?? ""))
+      : eff("adapterConfig", "effort", String(config.effort ?? ""));
   const showThinkingEffort = adapterType !== "gemini_local";
   const codexSearchEnabled = adapterType === "codex_local"
     ? (isCreate ? Boolean(val!.search) : eff("adapterConfig", "search", Boolean(config.search)))
@@ -1015,11 +992,7 @@ export function AgentConfigForm(props: AgentConfigFormProps) {
                       const result = await refetchDetectedModel();
                       return result.data?.model ?? null;
                     }}
-                onRefreshModels={
-                  adapterType === "codex_local" || adapterType === "acpx_local"
-                    ? handleRefreshModels
-                    : undefined
-                }
+                onRefreshModels={adapterType === "codex_local" ? handleRefreshModels : undefined}
                 refreshingModels={refreshingModels}
                 detectModelLabel="Detect model"
                 emptyDetectHint="No model detected. Select or enter one manually."

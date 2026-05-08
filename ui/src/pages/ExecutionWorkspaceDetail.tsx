@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Link, Navigate, useLocation, useNavigate, useParams } from "@/lib/router";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { useTranslation } from "react-i18next";
 import type { ExecutionWorkspace, Issue, Project, ProjectWorkspace, RoutineListItem } from "@paperclipai/shared";
 import { Copy, ExternalLink, Loader2, Play, Repeat } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -528,7 +528,11 @@ function ExecutionWorkspaceRoutinesList({
 }
 
 export function ExecutionWorkspaceDetail() {
+<<<<<<< HEAD
   const { t } = useTranslation("workspaces", { keyPrefix: "executionWorkspaceDetail" });
+=======
+  const { t } = useTranslation();
+>>>>>>> 2bfcfa07 (feat(i18n): restore Chinese translations after upstream sync)
   const { workspaceId } = useParams<{ workspaceId: string }>();
   const location = useLocation();
   const navigate = useNavigate();

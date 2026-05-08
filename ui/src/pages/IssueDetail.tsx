@@ -1,4 +1,5 @@
 import { memo, useCallback, useEffect, useMemo, useRef, useState, type ChangeEvent, type DragEvent, type Ref } from "react";
+import { useTranslation } from "react-i18next";
 import { pickTextColorForPillBg } from "@/lib/color-contrast";
 import { Link, useLocation, useNavigate, useNavigationType, useParams } from "@/lib/router";
 import { useInfiniteQuery, useQuery, useMutation, useQueryClient, type InfiniteData, type QueryClient } from "@tanstack/react-query";
@@ -3576,7 +3577,6 @@ export function IssueDetail() {
             createIssueLabel={t("issues:detail.subIssue")}
             defaultSortField="workflow"
             showProgressSummary
-            parentIssueIdForCostSummary={issue.id}
             onUpdateIssue={handleChildIssueUpdate}
           />
         </div>
