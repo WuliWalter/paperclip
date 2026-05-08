@@ -41,6 +41,17 @@
     "finished": "Finished {{time}}",
     "started": "Started {{time}}"
   },
+  "liveRuns": {
+    "breadcrumb": "Live runs",
+    "selectCompany": "Select a company to view live runs.",
+    "createCompany": "Create a company to view live runs.",
+    "backToDashboard": "Dashboard",
+    "title": "Live agent runs",
+    "description": "Active runs first, followed by the most recent completed runs.",
+    "showingUpTo": "Showing up to {{limit}}",
+    "activeRecent": "Active / recent",
+    "noRuns": "No active or recent agent runs."
+  },
   "chartEmpty": {
     "noRuns": "No runs yet",
     "noIssues": "No issues"
