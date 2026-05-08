@@ -5,7 +5,7 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "@/lib/router";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { App } from "./App";
-import { CompanyProvider } from "./context/CompanyContext";
+import { CompanyProvider, useCompany } from "./context/CompanyContext";
 import { LiveUpdatesProvider } from "./context/LiveUpdatesProvider";
 import { BreadcrumbProvider } from "./context/BreadcrumbContext";
 import { PanelProvider } from "./context/PanelContext";
@@ -39,36 +39,39 @@ const queryClient = new QueryClient({
   },
 });
 
+function CompanyAwareBreadcrumbProvider({ children }: { children: React.ReactNode }) {
+  const { selectedCompany } = useCompany();
+  return <BreadcrumbProvider companyName={selectedCompany?.name ?? null}>{children}</BreadcrumbProvider>;
+}
+
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <LocaleProvider>
-      <QueryClientProvider client={queryClient}>
-        <ThemeProvider>
-          <BrowserRouter>
-            <CompanyProvider>
-              <EditorAutocompleteProvider>
-                <ToastProvider>
-                  <LiveUpdatesProvider>
-                    <TooltipProvider>
-                      <BreadcrumbProvider>
-                        <SidebarProvider>
-                          <PanelProvider>
-                            <PluginLauncherProvider>
-                              <DialogProvider>
-                                <App />
-                              </DialogProvider>
-                            </PluginLauncherProvider>
-                          </PanelProvider>
-                        </SidebarProvider>
-                      </BreadcrumbProvider>
-                    </TooltipProvider>
-                  </LiveUpdatesProvider>
-                </ToastProvider>
-              </EditorAutocompleteProvider>
-            </CompanyProvider>
-          </BrowserRouter>
-        </ThemeProvider>
-      </QueryClientProvider>
-    </LocaleProvider>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider>
+        <BrowserRouter>
+          <CompanyProvider>
+            <EditorAutocompleteProvider>
+              <ToastProvider>
+                <LiveUpdatesProvider>
+                  <TooltipProvider>
+                    <CompanyAwareBreadcrumbProvider>
+                      <SidebarProvider>
+                        <PanelProvider>
+                          <PluginLauncherProvider>
+                            <DialogProvider>
+                              <App />
+                            </DialogProvider>
+                          </PluginLauncherProvider>
+                        </PanelProvider>
+                      </SidebarProvider>
+                    </CompanyAwareBreadcrumbProvider>
+                  </TooltipProvider>
+                </LiveUpdatesProvider>
+              </ToastProvider>
+            </EditorAutocompleteProvider>
+          </CompanyProvider>
+        </BrowserRouter>
+      </ThemeProvider>
+    </QueryClientProvider>
   </StrictMode>
 );
