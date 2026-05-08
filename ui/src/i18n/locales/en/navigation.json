@@ -24,6 +24,7 @@
     "experimental": "Experimental",
     "plugins": "Plugins",
     "adapters": "Adapters",
+    "skills": "Skills",
     "invites": "Invites",
     "environments": "Environments"
   },
@@ -32,7 +33,11 @@
     "agents": "Agents",
     "issues": "Issues",
     "myIssues": "My Issues",
-    "liveRuns": "Live runs"
+    "liveRuns": "Live runs",
+    "inbox": "Inbox",
+    "users": "Users",
+    "projects": "Projects",
+    "workspaces": "Workspaces"
   },
   "mobileNav": {
     "home": "Home",

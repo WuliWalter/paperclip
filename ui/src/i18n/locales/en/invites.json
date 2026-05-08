@@ -348,5 +348,44 @@
       "createOne": "Create one",
       "signInLink": "Sign in"
     }
+  },
+  "joinRequestQueue": {
+    "breadcrumb": {
+      "company": "Company",
+      "inbox": "Inbox",
+      "joinRequests": "Join Requests"
+    },
+    "title": "Join Request Queue",
+    "description": "Review human and agent join requests outside the mixed inbox feed. This queue uses the same approval mutations as the inline inbox cards.",
+    "status": "Status",
+    "requestType": "Request type",
+    "statusOptions": {
+      "pending_approval": "Pending approval",
+      "approved": "Approved",
+      "rejected": "Rejected"
+    },
+    "typeOptions": {
+      "all": "All",
+      "human": "Human",
+      "agent": "Agent"
+    },
+    "noMatches": "No join requests match the current filters.",
+    "unknownHuman": "Unknown human requester",
+    "unknownAgent": "Unknown agent requester",
+    "inviteUnavailable": "Invite metadata unavailable",
+    "submitted": "Submitted {{date}}",
+    "inviteContext": "Invite context",
+    "requestDetails": "Request details",
+    "sourceIp": "Source IP {{ip}}",
+    "reject": "Reject",
+    "approve": "Approve",
+    "selectCompany": "Select a company to review join requests.",
+    "loading": "Loading join requests…",
+    "permissionError": "You do not have permission to review join requests for this company.",
+    "loadError": "Failed to load join requests.",
+    "toast": {
+      "approved": "Join request approved",
+      "rejected": "Join request rejected"
+    }
   }
 }

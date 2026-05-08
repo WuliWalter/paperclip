@@ -188,9 +188,70 @@
     "failedToUpdateRoutine": "Failed to update routine",
     "routineRunFailed": "Routine run failed"
   },
+  "runDialog": {
+    "title": "Run routine",
+    "description": "Choose the agent and optional project for this one run. Routine defaults are prefilled and won't be changed.",
+    "agentLabel": "Agent *",
+    "agentPlaceholder": "Agent",
+    "selectAgent": "Select an agent",
+    "searchAgents": "Search agents...",
+    "noAgentsFound": "No agents found.",
+    "projectLabel": "Project",
+    "projectPlaceholder": "Project",
+    "noProject": "No project",
+    "searchProjects": "Search projects...",
+    "noProjectsFound": "No projects found.",
+    "noValue": "No value",
+    "true": "True",
+    "false": "False",
+    "chooseValue": "Choose a value",
+    "defaultAgentRequired": "Default agent required for this run.",
+    "missing": "Missing: {{fields}}",
+    "chooseWorkspace": "Choose an existing workspace before running.",
+    "cancel": "Cancel",
+    "running": "Running...",
+    "runRoutine": "Run routine"
+  },
   "errors": {
     "loadFailed": "Failed to load routines",
     "updateFailed": "Failed to update routine",
     "runFailed": "Paperclip could not start the routine run."
+  },
+  "variablesEditor": {
+    "variables": "Variables",
+    "detectedFromPlaceholders": "Detected from `{{name}}` placeholders in the routine title and instructions.",
+    "promptUser": "Prompt the user for this value before each manual run.",
+    "label": "Label",
+    "type": "Type",
+    "defaultValue": "Default value",
+    "required": "Required",
+    "noDefault": "No default",
+    "true": "True",
+    "false": "False",
+    "options": "Options",
+    "optionsPlaceholder": "high, medium, low",
+    "defaultOption": "Default option",
+    "numberPlaceholder": "42",
+    "textPlaceholder": "Default value"
+  },
+  "variablesHelp": {
+    "ariaLabel": "Show variable help",
+    "hintText": "Use `{{variable_name}}` placeholders in the instructions to prompt for inputs when the routine runs.",
+    "title": "Routine variables",
+    "description": "How to prompt for inputs and which variables Paperclip fills in automatically.",
+    "customVariables": "Custom variables",
+    "customVariablesIntro": "Type {{placeholder}} anywhere in the title or instructions. Paperclip detects each placeholder, lists it under Variables, and prompts for a value before each run.",
+    "namingRules": "Names must start with a letter and may use letters, numbers, and underscores.",
+    "typeRules": "Pick a type (text, textarea, number, boolean, select), default value, and whether it is required.",
+    "reuseRules": "The same name reused across the title and instructions is treated as one variable.",
+    "builtinVariables": "Built-in variables",
+    "builtinIntro": "These are filled in automatically — no setup needed and they will not appear in the Variables list.",
+    "table": {
+      "placeholder": "Placeholder",
+      "example": "Example",
+      "description": "Description"
+    },
+    "builtinDateDescription": "Current date in YYYY-MM-DD format (UTC) at the time the routine runs.",
+    "builtinTimestampDescription": "Human-readable date and time (UTC) at the time the routine runs."
   }
 }

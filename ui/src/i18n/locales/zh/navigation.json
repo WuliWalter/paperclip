@@ -2,11 +2,11 @@
   "sidebar": {
     "dashboard": "仪表盘",
     "agents": "智能体",
-    "issues": "事项",
+    "issues": "待办",
     "approvals": "审批",
     "projects": "项目",
     "goals": "目标",
-    "routines": "例行任务",
+    "routines": "定时任务",
     "workspaces": "工作区",
     "activity": "活动",
     "costs": "成本",
@@ -24,24 +24,29 @@
     "experimental": "实验性功能",
     "plugins": "插件",
     "adapters": "适配器",
+    "skills": "技能",
     "invites": "邀请",
     "environments": "环境"
   },
   "breadcrumbs": {
     "dashboard": "仪表盘",
     "agents": "智能体",
-    "issues": "事项",
-    "myIssues": "我的事项",
-    "liveRuns": "实时运行"
+    "issues": "待办",
+    "myIssues": "我的待办",
+    "liveRuns": "实时运行",
+    "inbox": "收件箱",
+    "users": "用户",
+    "projects": "项目",
+    "workspaces": "工作区"
   },
   "mobileNav": {
     "home": "首页",
-    "issues": "事项",
+    "issues": "待办",
     "create": "创建",
     "agents": "智能体",
     "inbox": "收件箱"
   },
-  "newIssue": "新建事项",
+  "newIssue": "新建待办",
   "newAgent": "新建智能体",
   "newProject": "新建项目",
   "liveCount_one": "{{count}} 实时",

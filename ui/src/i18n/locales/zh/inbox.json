@@ -22,9 +22,10 @@
   "markAllAsRead": "全部标记为已读",
   "marking": "标记中...",
   "markAllConfirmTitle": "全部标记为已读？",
+  "markAllConfirmDescription": "这将把 {{count}} 条未读待办标记为已读。",
   "categories": {
     "all": "全部",
-    "myIssues": "我的任务",
+    "myIssues": "我的待办",
     "joinRequests": "加入请求",
     "approvals": "审批",
     "failedRuns": "失败运行",
@@ -63,7 +64,7 @@
     "failedToApproveJoinRequest": "批准加入请求失败",
     "failedToRejectJoinRequest": "拒绝加入请求失败",
     "retrySkipped": "重试被跳过。",
-    "failedToArchiveIssue": "归档任务失败",
+    "failedToArchiveIssue": "归档待办失败",
     "failedToUndoArchive": "撤销收件箱归档失败",
     "humanJoinRequest": "人工加入请求"
   },

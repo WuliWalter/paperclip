@@ -16,6 +16,13 @@ import enInvites from "./locales/en/invites.json";
 import enRoutines from "./locales/en/routines.json";
 import enGoals from "./locales/en/goals.json";
 import enWorkspaces from "./locales/en/workspaces.json";
+import enCompanies from "./locales/en/companies.json";
+import enProjects from "./locales/en/projects.json";
+import enAuth from "./locales/en/auth.json";
+import enCosts from "./locales/en/costs.json";
+import enPlugins from "./locales/en/plugins.json";
+import enSkills from "./locales/en/skills.json";
+import enOnboarding from "./locales/en/onboarding.json";
 
 import zhCommon from "./locales/zh/common.json";
 import zhNavigation from "./locales/zh/navigation.json";
@@ -31,6 +38,13 @@ import zhInvites from "./locales/zh/invites.json";
 import zhRoutines from "./locales/zh/routines.json";
 import zhGoals from "./locales/zh/goals.json";
 import zhWorkspaces from "./locales/zh/workspaces.json";
+import zhCompanies from "./locales/zh/companies.json";
+import zhProjects from "./locales/zh/projects.json";
+import zhAuth from "./locales/zh/auth.json";
+import zhCosts from "./locales/zh/costs.json";
+import zhPlugins from "./locales/zh/plugins.json";
+import zhSkills from "./locales/zh/skills.json";
+import zhOnboarding from "./locales/zh/onboarding.json";
 
 const resources = {
   en: {
@@ -48,6 +62,13 @@ const resources = {
     routines: enRoutines,
     goals: enGoals,
     workspaces: enWorkspaces,
+    companies: enCompanies,
+    projects: enProjects,
+    auth: enAuth,
+    costs: enCosts,
+    plugins: enPlugins,
+    skills: enSkills,
+    onboarding: enOnboarding,
   },
   zh: {
     common: zhCommon,
@@ -64,6 +85,13 @@ const resources = {
     routines: zhRoutines,
     goals: zhGoals,
     workspaces: zhWorkspaces,
+    companies: zhCompanies,
+    projects: zhProjects,
+    auth: zhAuth,
+    costs: zhCosts,
+    plugins: zhPlugins,
+    skills: zhSkills,
+    onboarding: zhOnboarding,
   },
 };
 

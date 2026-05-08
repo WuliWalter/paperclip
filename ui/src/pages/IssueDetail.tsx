@@ -3273,7 +3273,7 @@ export function IssueDetail() {
                   }}
                 >
                   <PauseCircle className="h-3 w-3" />
-                  Pause work...
+                  {t("detail.pauseWork")}...
                 </button>
               ) : null}
               {canResumeLeafWork ? (
@@ -3287,7 +3287,7 @@ export function IssueDetail() {
                   }}
                 >
                   <PlayCircle className="h-3 w-3" />
-                  Resume work
+                  {t("detail.resumeWork")}
                 </button>
               ) : null}
               {canShowSubtreeControls ? (
@@ -3302,7 +3302,7 @@ export function IssueDetail() {
                     }}
                   >
                     <PauseCircle className="h-3 w-3" />
-                    Pause subtree...
+                    {t("detail.pauseSubtree")}...
                   </button>
                   {canResumeSubtree ? (
                     <button
@@ -3315,7 +3315,7 @@ export function IssueDetail() {
                       }}
                     >
                       <PlayCircle className="h-3 w-3" />
-                      Resume subtree
+                      {t("detail.resumeSubtree")}
                     </button>
                   ) : null}
                   <button
@@ -3328,7 +3328,7 @@ export function IssueDetail() {
                     }}
                   >
                     <XCircle className="h-3 w-3" />
-                    Cancel subtree...
+                    {t("detail.cancelSubtree")}...
                   </button>
                   {canRestoreSubtree ? (
                     <button
@@ -3342,7 +3342,7 @@ export function IssueDetail() {
                       }}
                     >
                       <Repeat className="h-3 w-3" />
-                      Restore subtree...
+                      {t("detail.restoreSubtree")}...
                     </button>
                   ) : null}
                 </>
@@ -3358,7 +3358,7 @@ export function IssueDetail() {
                 }}
               >
                 <EyeOff className="h-3 w-3" />
-                Hide this Issue
+                {t("detail.hideThisIssue")}
               </button>
             </PopoverContent>
             </Popover>

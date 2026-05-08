@@ -252,6 +252,216 @@
     "enable": "Enable",
     "enableAndCreate": "Enable and create {{count}}"
   },
+  "instanceAccess": {
+    "breadcrumb": {
+      "instanceSettings": "Instance Settings",
+      "access": "Access"
+    },
+    "title": "Instance Access",
+    "description": "Search users, manage instance-admin status, and control which companies they can access.",
+    "searchUsers": "Search users",
+    "searchPlaceholder": "Search by name or email",
+    "activeMemberships_one": "{{count}} active company membership",
+    "activeMemberships_other": "{{count}} active company memberships",
+    "loadingUsers": "Loading instance users…",
+    "adminRequired": "Instance admin access is required to manage users.",
+    "loadFailed": "Failed to load users.",
+    "selectUser": "Select a user to inspect instance access.",
+    "loadingAccess": "Loading user access…",
+    "loadAccessFailed": "Failed to load user access.",
+    "removeAdmin": "Remove instance admin",
+    "promoteAdmin": "Promote to instance admin",
+    "companyAccess": "Company access",
+    "companyAccessHint": "Toggle company membership for this user. New access defaults to an active operator membership.",
+    "saving": "Saving…",
+    "saveAccess": "Save company access",
+    "currentMemberships": "Current memberships",
+    "unset": "unset",
+    "toast": {
+      "companyAccessUpdated": "Company access updated",
+      "instanceRoleUpdated": "Instance role updated"
+    }
+  },
+  "companyAccess": {
+    "breadcrumb": {
+      "company": "Company",
+      "settings": "Settings",
+      "access": "Access"
+    },
+    "title": "Company Access",
+    "description": "Manage company user memberships, membership status, and explicit permission grants for {{companyName}}.",
+    "instanceAdminNote": "This account can manage access here through instance-admin privileges, but it does not currently hold an active company membership.",
+    "humans": {
+      "title": "Humans",
+      "description": "Manage human company memberships, status, and grants here."
+    },
+    "pendingJoins": {
+      "title": "Pending human joins",
+      "description": "Review human join requests before they become active company members.",
+      "pending": "{{count}} pending"
+    },
+    "table": {
+      "userAccount": "User account",
+      "role": "Role",
+      "status": "Status",
+      "grants": "Grants",
+      "action": "Action"
+    },
+    "noMemberships": "No user memberships found for this company yet.",
+    "unset": "Unset",
+    "noExplicitGrants": "No explicit grants",
+    "edit": "Edit",
+    "remove": "Remove",
+    "status": {
+      "active": "Active",
+      "pending": "Pending",
+      "suspended": "Suspended"
+    },
+    "noEmail": "No email available",
+    "approveHuman": "Approve human",
+    "rejectHuman": "Reject human",
+    "submitted": "Submitted {{date}}",
+    "inviteUnavailable": "Invite metadata unavailable",
+    "unknownHuman": "Unknown human requester",
+    "editMember": {
+      "title": "Edit member",
+      "description": "Update company role, membership status, and explicit grants for {{name}}.",
+      "companyRole": "Company role",
+      "membershipStatus": "Membership status",
+      "statusOptions": {
+        "active": "Active",
+        "pending": "Pending",
+        "suspended": "Suspended"
+      },
+      "grantsTitle": "Grants",
+      "grantsDescription": "Roles provide implicit grants automatically. Explicit grants below are only for overrides and extra access that should persist even if the role changes.",
+      "implicitGrantsTitle": "Implicit grants from role",
+      "implicitGrantsDescription": "{{role}} currently includes these permissions automatically.",
+      "noImplicitGrants": "No role is selected, so this member has no implicit grants right now.",
+      "storedExplicitly": "Stored explicitly for this member.",
+      "includedImplicitly": "Included implicitly by the {{role}} role. Add an explicit grant only if it should stay after the role changes.",
+      "cancel": "Cancel",
+      "saving": "Saving…",
+      "saveAccess": "Save access",
+      "selectedRoleFallback": "selected"
+    },
+    "removeMember": {
+      "title": "Remove member",
+      "description": "Archive {{name}} and move active assignments before hiding this user from assignment fields.",
+      "checkingIssues": "Checking assigned issues...",
+      "openIssues_one": "{{count}} open assigned issue",
+      "openIssues_other": "{{count}} open assigned issues",
+      "reassignment": "Issue reassignment",
+      "leaveUnassigned": "Leave unassigned",
+      "humansGroup": "Humans",
+      "agentsGroup": "Agents",
+      "cancel": "Cancel",
+      "removing": "Removing...",
+      "removeMember": "Remove member",
+      "moreIssues_one": "{{count}} more issue",
+      "moreIssues_other": "{{count}} more issues"
+    },
+    "toast": {
+      "memberUpdated": "Member updated",
+      "updateFailed": "Failed to update member",
+      "joinRequestApproved": "Join request approved",
+      "approveFailed": "Failed to approve join request",
+      "joinRequestRejected": "Join request rejected",
+      "rejectFailed": "Failed to reject join request",
+      "memberRemoved": "Member removed",
+      "issuesCleanedUp_one": "{{count}} assigned issue cleaned up.",
+      "issuesCleanedUp_other": "{{count}} assigned issues cleaned up.",
+      "removeFailed": "Failed to remove member",
+      "unknownError": "Unknown error"
+    },
+    "selectCompany": "Select a company to manage access.",
+    "loading": "Loading company access…",
+    "permissionError": "You do not have permission to manage company members.",
+    "loadError": "Failed to load company members.",
+    "permissionLabels": {
+      "agents:create": "Create agents",
+      "users:invite": "Invite humans and agents",
+      "users:manage_permissions": "Manage members and grants",
+      "tasks:assign": "Assign tasks",
+      "tasks:assign_scope": "Assign scoped tasks",
+      "tasks:manage_active_checkouts": "Manage active task checkouts",
+      "joins:approve": "Approve join requests",
+      "environments:manage": "Manage environments"
+    }
+  },
+  "environments": {
+    "breadcrumb": {
+      "company": "Company",
+      "settings": "Settings",
+      "environments": "Environments"
+    },
+    "title": "Company Environments",
+    "description": "Define reusable execution targets for projects, issue workspaces, and remote-capable adapters.",
+    "disabled": "Enable Environments in instance experimental settings to manage company execution targets.",
+    "selectCompany": "Select a company to manage environments.",
+    "info": "Environment choices use the same adapter support matrix as agent defaults. SSH is always available for remote-managed adapters, and sandbox environments appear only when a run-capable sandbox provider plugin is installed.",
+    "tableCaption": "Environment support by adapter",
+    "adapter": "Adapter",
+    "local": "Local",
+    "ssh": "SSH",
+    "sandbox": "Sandbox",
+    "yes": "Yes",
+    "no": "No",
+    "noEnvironments": "No environments saved for this company yet.",
+    "sshHost": "SSH host",
+    "user": "user",
+    "sandboxProvider": "sandbox",
+    "sandboxProviderDisplay": "{{provider}} sandbox provider",
+    "localDescription": "Runs on this Paperclip host.",
+    "testConnection": "Test connection",
+    "testProvider": "Test provider",
+    "testing": "Testing...",
+    "edit": "Edit",
+    "editing": "Editing",
+    "editEnvironment": "Edit environment",
+    "addEnvironment": "Add environment",
+    "name": "Name",
+    "nameHint": "Operator-facing name for this execution target.",
+    "description": "Description",
+    "descriptionHint": "Optional note about what this machine is for.",
+    "driver": "Driver",
+    "driverHint": "Local runs on this host. SSH stores a remote machine target. Sandbox stores plugin-backed provider config on the shared environment seam.",
+    "host": "Host",
+    "hostHint": "DNS name or IP address for the remote machine.",
+    "port": "Port",
+    "portHint": "Defaults to 22.",
+    "username": "Username",
+    "usernameHint": "SSH login user.",
+    "remoteWorkspacePath": "Remote workspace path",
+    "remoteWorkspacePathHint": "Absolute path that Paperclip will verify during SSH connection tests.",
+    "privateKey": "Private key",
+    "privateKeyHint": "Optional PEM private key. Leave blank to rely on the server's SSH agent or default keychain.",
+    "noSavedSecret": "No saved secret",
+    "knownHosts": "Known hosts",
+    "knownHostsHint": "Optional known_hosts block used when strict host key checking is enabled.",
+    "strictHostKeyChecking": "Strict host key checking",
+    "strictHostKeyCheckingHint": "Keep this on unless you deliberately want probe-time host key acceptance disabled.",
+    "provider": "Provider",
+    "providerHint": "Installed run-capable sandbox provider plugins appear here.",
+    "noProviderConfig": "This provider does not declare additional configuration fields.",
+    "saving": "Saving...",
+    "creating": "Creating...",
+    "saveEnvironment": "Save environment",
+    "createEnvironment": "Create environment",
+    "cancel": "Cancel",
+    "testDraft": "Test draft",
+    "failedToSave": "Failed to save environment",
+    "toast": {
+      "updated": "Environment updated",
+      "created": "Environment created",
+      "readySuffix": "is ready.",
+      "saveFailed": "Failed to save environment",
+      "probePassed": "Environment probe passed",
+      "probeFailed": "Environment probe failed",
+      "draftProbePassed": "Draft probe passed",
+      "draftProbeFailed": "Draft probe failed"
+    }
+  },
   "company": {
     "title": "Company Settings",
     "general": "General",
@@ -307,5 +517,121 @@
     "noCompanySelected": "No company selected. Select a company from the switcher above.",
     "breadcrumbCompany": "Company",
     "breadcrumbSettings": "Settings"
+  },
+  "companyExport": {
+    "breadcrumb": {
+      "orgChart": "Org Chart",
+      "export": "Export"
+    },
+    "selectCompany": "Select a company to export.",
+    "loading": "Loading export data...",
+    "title": "{{name}} export",
+    "filesSelected_one": "{{selected}} / {{total}} file selected",
+    "filesSelected_other": "{{selected}} / {{total}} files selected",
+    "warnings_one": "{{count}} warning",
+    "warnings_other": "{{count}} warnings",
+    "buildingExport": "Building export...",
+    "exportButton_one": "Export {{count}} file",
+    "exportButton_other": "Export {{count}} files",
+    "packageFiles": "Package files",
+    "searchPlaceholder": "Search files...",
+    "showMoreIssues": "Show more issues ({{visible}} of {{total}})",
+    "preview": {
+      "selectFile": "Select a file to preview its contents.",
+      "binaryUnavailable": "Binary asset preview is not available for this file type."
+    },
+    "toast": {
+      "exportFailedTitle": "Export failed",
+      "exportFailedBody": "Failed to load export data.",
+      "downloadedTitle": "Export downloaded",
+      "downloadedBody_one": "{{count}} file exported as {{filename}}",
+      "downloadedBody_other": "{{count}} files exported as {{filename}}"
+    }
+  },
+  "companyImport": {
+    "breadcrumb": {
+      "orgChart": "Org Chart",
+      "import": "Import"
+    },
+    "selectCompany": "Select a company to import into.",
+    "source": {
+      "title": "Import source",
+      "description": "Choose a GitHub repo or upload a local Paperclip zip package.",
+      "github": "GitHub repo",
+      "localZip": "Local zip"
+    },
+    "chooseZip": "Choose zip",
+    "filesInPackage_one": "{{count}} file",
+    "filesInPackage_other": "{{count}} files",
+    "localZipHelp": "Upload a .zip exported directly from Paperclip. Re-zipped archives created by Finder, Explorer, or other zip tools may not import correctly.",
+    "githubUrl": "GitHub URL",
+    "githubUrlHint": "Repo tree path or blob URL to COMPANY.md (e.g. github.com/owner/repo/tree/main/company).",
+    "githubUrlPlaceholder": "https://github.com/owner/repo/tree/main/company",
+    "target": "Target",
+    "targetHint": "Import into this company or create a new one.",
+    "createNewCompany": "Create new company",
+    "existingCompany": "Existing company: {{name}}",
+    "newCompanyName": "New company name",
+    "newCompanyNameHint": "Optional override. Leave blank to use the package name.",
+    "newCompanyNamePlaceholder": "Imported Company",
+    "collisionStrategy": "Collision strategy",
+    "collisionStrategyHint": "Board imports can rename, skip, or replace matching company content.",
+    "renameOnConflict": "Rename on conflict",
+    "skipOnConflict": "Skip on conflict",
+    "replaceExisting": "Replace existing",
+    "previewing": "Previewing...",
+    "previewImport": "Preview import",
+    "importPreview": "Import preview",
+    "filesSelected_one": "{{selected}} / {{total}} file selected",
+    "filesSelected_other": "{{selected}} / {{total}} files selected",
+    "conflicts_one": "{{count}} conflict",
+    "conflicts_other": "{{count}} conflicts",
+    "errors_one": "{{count}} error",
+    "errors_other": "{{count}} errors",
+    "importing": "Importing...",
+    "importButton_one": "Import {{count}} file",
+    "importButton_other": "Import {{count}} files",
+    "packageFiles": "Package files",
+    "renames": {
+      "title": "Renames",
+      "items_one": "{{count}} item",
+      "items_other": "{{count}} items",
+      "skip": "skip",
+      "skipped": "skipped",
+      "confirmRename": "confirm rename",
+      "confirmed": "confirmed"
+    },
+    "kind": {
+      "agent": "agent",
+      "project": "project",
+      "issue": "issue",
+      "skill": "skill"
+    },
+    "adapters": {
+      "title": "Adapters",
+      "items_one": "{{count}} agent",
+      "items_other": "{{count}} agents",
+      "agent": "agent",
+      "configureAdapter": "configure adapter"
+    },
+    "preview": {
+      "selectFile": "Select a file to preview its contents.",
+      "binaryUnavailable": "Binary asset preview is not available for this file type."
+    },
+    "toast": {
+      "previewFailedTitle": "Preview failed",
+      "previewFailedBody": "Failed to preview import.",
+      "importCompleteTitle": "Import complete",
+      "importCompleteBody_one": "{{name}}: {{count}} agent processed.",
+      "importCompleteBody_other": "{{name}}: {{count}} agents processed.",
+      "importFailedTitle": "Import failed",
+      "importFailedBody": "Failed to apply import.",
+      "packageReadFailedTitle": "Package read failed",
+      "packageReadFailedBody": "Failed to read folder."
+    },
+    "error": {
+      "notZip": "Select a .zip company package.",
+      "emptyZip": "No package files were found in the selected zip archive."
+    }
   }
 }

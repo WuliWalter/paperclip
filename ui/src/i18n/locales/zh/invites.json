@@ -20,13 +20,13 @@
       "operator": {
         "label": "操作员",
         "description": "推荐给需要协助运行工作但不需要管理访问权限的人员。",
-        "gets": "可以分配任务。",
+        "gets": "可以分配待办。",
         "defaultBadge": "默认"
       },
       "admin": {
         "label": "管理员",
         "description": "推荐给需要邀请人员、创建智能体和审批加入请求的操作员。",
-        "gets": "可以创建智能体、邀请用户、分配任务和审批加入请求。"
+        "gets": "可以创建智能体、邀请用户、分配待办和审批加入请求。"
       },
       "owner": {
         "label": "所有者",
@@ -347,6 +347,45 @@
       "alreadyHaveAccount": "已有账户？",
       "createOne": "创建一个",
       "signInLink": "登录"
+    }
+  },
+  "joinRequestQueue": {
+    "breadcrumb": {
+      "company": "公司",
+      "inbox": "收件箱",
+      "joinRequests": "加入请求"
+    },
+    "title": "加入请求队列",
+    "description": "在混合收件箱之外审核人类和代理的加入请求。此队列使用与内联收件箱卡片相同的审批操作。",
+    "status": "状态",
+    "requestType": "请求类型",
+    "statusOptions": {
+      "pending_approval": "待审批",
+      "approved": "已批准",
+      "rejected": "已拒绝"
+    },
+    "typeOptions": {
+      "all": "全部",
+      "human": "人类",
+      "agent": "代理"
+    },
+    "noMatches": "没有符合当前筛选条件的加入请求。",
+    "unknownHuman": "未知的人类请求者",
+    "unknownAgent": "未知的代理请求者",
+    "inviteUnavailable": "邀请元数据不可用",
+    "submitted": "提交于 {{date}}",
+    "inviteContext": "邀请上下文",
+    "requestDetails": "请求详情",
+    "sourceIp": "来源 IP {{ip}}",
+    "reject": "拒绝",
+    "approve": "批准",
+    "selectCompany": "选择公司以审核加入请求。",
+    "loading": "正在加载加入请求…",
+    "permissionError": "您没有权限审核此公司的加入请求。",
+    "loadError": "加载加入请求失败。",
+    "toast": {
+      "approved": "加入请求已批准",
+      "rejected": "加入请求已拒绝"
     }
   }
 }

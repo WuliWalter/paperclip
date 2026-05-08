@@ -67,6 +67,7 @@ function AdapterRow({
   toggleTitleDisabled?: string;
   disabledBadgeLabel?: string;
 }) {
+  const { t } = useTranslation("adapters");
   return (
     <li>
       <div className="flex items-center gap-4 px-4 py-3">

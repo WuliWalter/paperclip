@@ -332,7 +332,7 @@ function WorkspaceRoutineRow({
   runningRoutineId: string | null;
   onRunNow: (routine: RoutineListItem) => void;
 }) {
-  const { t } = useTranslation("workspaces");
+  const { t } = useTranslation("workspaces", { keyPrefix: "executionWorkspaceDetail" });
   const isArchived = routine.status === "archived";
   const isRunning = runningRoutineId === routine.id;
 
@@ -380,7 +380,7 @@ function ExecutionWorkspaceRoutinesList({
   workspace: ExecutionWorkspace;
   project: Project | null;
 }) {
-  const { t } = useTranslation("workspaces");
+  const { t } = useTranslation("workspaces", { keyPrefix: "executionWorkspaceDetail" });
   const queryClient = useQueryClient();
   const { pushToast } = useToastActions();
   const [runDialogRoutine, setRunDialogRoutine] = useState<RoutineListItem | null>(null);
@@ -506,7 +506,7 @@ function ExecutionWorkspaceRoutinesList({
 }
 
 export function ExecutionWorkspaceDetail() {
-  const { t } = useTranslation("workspaces");
+  const { t } = useTranslation("workspaces", { keyPrefix: "executionWorkspaceDetail" });
   const { workspaceId } = useParams<{ workspaceId: string }>();
   const location = useLocation();
   const navigate = useNavigate();
@@ -590,9 +590,9 @@ export function ExecutionWorkspaceDetail() {
   useEffect(() => {
     if (!workspace) return;
     const crumbs = [
-      { label: t("breadcrumb.projects"), href: "/projects" },
+      { label: t("breadcrumbs.projects", { ns: "navigation" }), href: "/projects" },
       ...(project ? [{ label: project.name, href: `/projects/${projectRef}` }] : []),
-      ...(project ? [{ label: t("breadcrumb.workspaces"), href: `/projects/${projectRef}/workspaces` }] : []),
+      ...(project ? [{ label: t("breadcrumbs.workspaces", { ns: "navigation" }), href: `/projects/${projectRef}/workspaces` }] : []),
       { label: workspace.name },
     ];
     setBreadcrumbs(crumbs);

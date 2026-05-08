@@ -283,6 +283,8 @@ function TriggerEditor({
 
 export function RoutineDetail() {
   const { t } = useTranslation("routines");
+  const concurrencyPolicyDescriptions = useConcurrencyPolicyDescriptions(t);
+  const catchUpPolicyDescriptions = useCatchUpPolicyDescriptions(t);
   const { routineId } = useParams<{ routineId: string }>();
   const { selectedCompanyId } = useCompany();
   const { setBreadcrumbs } = useBreadcrumbs();

@@ -218,7 +218,7 @@ export function Agents() {
         <EmptyState
           icon={Bot}
           message={t("agents:createFirstAgent")}
-          action={t("agents:newAgent")}
+          action={t("agents:createAgent")}
           onAction={openNewAgent}
         />
       )}
