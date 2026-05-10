@@ -21,6 +21,7 @@ import { EmptyState } from "../components/EmptyState";
 import { MarkdownBody } from "../components/MarkdownBody";
 import { MarkdownEditor } from "../components/MarkdownEditor";
 import { PageSkeleton } from "../components/PageSkeleton";
+import { useSkillContentTranslator } from "../i18n/skill-content";
 import {
   Dialog,
   DialogContent,
@@ -772,6 +773,7 @@ export function CompanySkills() {
   const { selectedCompanyId } = useCompany();
   const { setBreadcrumbs } = useBreadcrumbs();
   const { pushToast } = useToastActions();
+  const skillTranslator = useSkillContentTranslator();
   const [skillFilter, setSkillFilter] = useState("");
   const [source, setSource] = useState("");
   const [createOpen, setCreateOpen] = useState(false);
@@ -881,8 +883,15 @@ export function CompanySkills() {
     setDisplayedFile(null);
   }, [selectedSkillId]);
 
-  const activeDetail = detailQuery.data ?? displayedDetail;
-  const activeFile = fileQuery.data ?? displayedFile;
+  const activeDetail = skillTranslator.translateDetail(detailQuery.data ?? displayedDetail);
+  const activeFile = skillTranslator.translateFile(
+    fileQuery.data ?? displayedFile,
+    activeDetail?.slug,
+  );
+  const translatedSkills = useMemo(
+    () => (skillsQuery.data ?? []).map((skill) => skillTranslator.translateListItem(skill)),
+    [skillsQuery.data, skillTranslator],
+  );
 
   function openDeleteDialog() {
     setDeleteTargetSkillId(selectedSkillId);
@@ -1253,7 +1262,7 @@ export function CompanySkills() {
             <div className="px-4 py-6 text-sm text-destructive">{skillsQuery.error.message}</div>
           ) : (
             <SkillList
-              skills={skillsQuery.data ?? []}
+              skills={translatedSkills}
               selectedSkillId={selectedSkillId}
               skillFilter={skillFilter}
               expandedSkillId={expandedSkillId}
