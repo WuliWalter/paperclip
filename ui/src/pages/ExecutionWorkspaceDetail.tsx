@@ -528,11 +528,7 @@ function ExecutionWorkspaceRoutinesList({
 }
 
 export function ExecutionWorkspaceDetail() {
-<<<<<<< HEAD
-  const { t } = useTranslation("workspaces", { keyPrefix: "executionWorkspaceDetail" });
-=======
   const { t } = useTranslation();
->>>>>>> 2bfcfa07 (feat(i18n): restore Chinese translations after upstream sync)
   const { workspaceId } = useParams<{ workspaceId: string }>();
   const location = useLocation();
   const navigate = useNavigate();
